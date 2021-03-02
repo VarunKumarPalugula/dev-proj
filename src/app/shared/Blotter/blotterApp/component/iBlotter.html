@@ -1,0 +1,48 @@
+<div class="blotterDiv">
+		<tabs #tabs *ngIf="tabList.length > 0" (tabCloseEvent)="onTabClose($event,tabs)" >
+		<div *ngFor="let tabObj of tabList; let i = index">		
+			<tab [heading]="tabObj?.displayName" tabHeight="94vh" [active]="tabObj?.active" [closeIcon]="tabObj?.closeIcon">
+
+				<div class="firstBlotterDiv"  [ngStyle] = "{'width': tabObj?.gridWidth}">
+					<iTreeGrid style="width:100%;display: block;float: left; margin-bottom: .5%;" [ngStyle] = "{'height': tabObj?.gridHeight}"
+						[gridHeight]="'90%'" [gridWidth]="'100%'" [showgroupsheader] = "false"
+						[optionBar]="true" [title]="tabObj?.firstGridTitle" [gridDataList]="tabObj?.firstGridData" [requestType]="!tabObj.firstGridData?'/ucf/services/blotterhandler/blotter/FI_POS_BLTR':null"
+						[options] ="tabObj?.option" [groups] = "tabObj?.isGroupable?(['BRANCH','PROD_NAME','SECURITY_CODE','BPS']):[]" 
+						[isContextMenu]="tabObj?.isContextMenu" (contextMenuEvent)="onContextMenuClick($event)"
+						[ctxMenuList]= 'tabObj?.isContextMenu?([{"id":"LIEN","label":"Lien"},{"id":"FWDPOS","label":"Forward Position"}]):[]'
+						(rowDoubleClickEvent)="onDoubleClick($event)" [pagermode]="'simple'" [pageable]="false" [showstatusbar]="false" [theme]="'black'">
+					</iTreeGrid>				
+					<jqxChart  *ngIf="tabObj.firstGridData" #visualChart
+						[width]="'100%'" [height]="300"
+						[title]="'Lien'"
+						[description]="''"
+						[showLegend]="true" [enableAnimations]="true" [padding]="chartPadding"
+						[titlePadding]="chartTitlePadding" [source]="this.LienDataArr[1]" [xAxis]="chartXAxis"
+						[seriesGroups]="chartSeriesGroups"  [colorScheme]="'scheme02'"
+    					 [backgroundColor]="'#333'">
+					</jqxChart>
+				</div>
+				<div *ngIf="tabObj?.both" class="scndBlotterDiv"  [ngStyle] = "{'width': tabObj?.gridWidth}">
+					<iTreeGrid style="width:100%;display: block;margin-bottom: .5%;" [ngStyle] = "{'height': tabObj?.gridHeight}"
+						[gridHeight]="'90%'" [gridWidth]="'100%'" [showgroupsheader] = "false"
+						[optionBar]="true" [title]="tabObj?.secondGridTitle" [gridDataList]="tabObj?.secondGridData" 
+						[options] ="tabObj?.option" [groups] = "tabObj?.isGroupable?(['BRANCH','PROD_NAME','SECURITY_CODE','BPS']):[]" 
+						[isContextMenu]="tabObj?.isContextMenu" (contextMenuEvent)="onContextMenuClick($event)"
+						[ctxMenuList]= 'tabObj?.isContextMenu?([{"id":"LIEN","label":"Lien"},{"id":"FWDPOS","label":"Forward Position"}]):[]'
+						[pagermode]="'simple'" [pageable]="false" [showstatusbar]="false" [theme]="'black'">
+					</iTreeGrid>
+					
+					<jqxChart 
+							[width]="'100%'" [height]="300"
+							[title]="'Forward Position'"
+							[description]="''"
+							[showLegend]="true" [enableAnimations]="true" [padding]="chartPadding"
+							[titlePadding]="chartTitlePadding" [source]="this.FwdDataArr[1]" [xAxis]="chartXAxis"
+							[seriesGroups]="chartSeriesGroups"   [columnSeriesOverlap]="false" [colorScheme]="'scheme02'" [backgroundColor]="'#333'"
+    						 >
+					</jqxChart>
+				</div>
+			  </tab>
+		</div>
+	</tabs>
+</div>

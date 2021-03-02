@@ -1,0 +1,70 @@
+table.dataTable {
+	margin: 0 auto;
+	clear: both;
+	border-collapse: separate;
+	border-spacing: 0;
+	table-layout: fixed;
+	font-size: 0.9em;
+	border: 1px solid #ddd;
+}
+
+table.dataTable, table.dataTable th, table.dataTable td {
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box
+}
+
+table.dataTable tbody tr {
+	background-color: #ffffff
+}
+
+table.dataTable.stripe tbody tr:nth-of-type(odd), table.dataTable.display tbody tr:nth-of-type(odd)
+{
+	background-color: #f9f9f9
+}
+
+table.dataTable.row-border tbody tr:first-child th, table.dataTable.row-border tbody tr:first-child td,
+table.dataTable.display tbody tr:first-child th,table.dataTable.display tbody tr:first-child td
+{
+	border-top: none
+}
+
+table.dataTable.row-border tbody th, table.dataTable.row-border tbody td,
+table.dataTable.display tbody th, table.dataTable.display tbody td {
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+
+table.dataTable tbody th, table.dataTable tbody td {
+	padding: .25vw;
+	/* START - To avoid truncation comment out below settings */
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-size: .9vw;
+	/* END - Text truncation */
+}
+
+tr:hover {
+    background-color: #c1ebf1 !important;
+}
+
+.div-wrapper {
+    position: relative;
+	overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.data-scroller {   
+    overflow-x: visible;
+    overflow-y: hidden;       
+}
+
+.pinned-col {
+    left: 0;
+    position: absolute;
+    top: auto;
+}
+
+.diff-text {
+    color: #ff0000;
+}

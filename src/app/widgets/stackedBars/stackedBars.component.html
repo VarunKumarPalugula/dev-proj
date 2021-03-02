@@ -1,0 +1,17 @@
+<div #StackedBars id="StackedBars">
+<div class="d3-chart" #chart>
+<ul *ngIf="requestType == 'Performance_Reporting'">
+<li>
+<a #portfolio style="background: #709fdc; color: #f1f1f1; padding-left: 2px; padding-right: 2px; border-radius: 2px;" (click)="loadData('Portfolio')">Portfolio</a>
+&nbsp;&nbsp;
+<a #benchmark style="color: #f1f1f1; padding-left: 2px; padding-right: 2px; border-radius: 2px;" (click)="loadData('Benchmark')">Benchmark</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="progress" *ngIf="prgStatus==true">
+<div class="circle">
+<mat-progress-spinner [mode]="progressMode" id="circleLoading" class="layout"></mat-progress-spinner>
+</div>
+</div>
+<div id="dwnChart" class="d3-chart" #dwnChart style="display: none;"></div>

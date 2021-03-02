@@ -1,0 +1,104 @@
+/* body {
+	background-color: #FFFFFF;
+} */
+
+#test .arc2 {
+	stroke-weight: 0.1;
+	fill: #3660b0;
+}
+
+#outer {
+	/* background: #FFFFFF; */
+	border-radius: 5px;
+	color: #000;
+}
+
+#div1, #div2, #div3{ /*, #div4   */
+	width: 33%;
+	height: 200px;
+	box-sizing: border-box;
+	float: left;
+	min-width: 140px;
+}
+
+#div3 .arc {
+	stroke-weight: 0.1;
+	/*fill: green #1d871b #4e8fff; #f0a417;*/
+}
+
+#div3 .arc2 {
+	stroke-weight: 0.1;
+	/*fill: orange #b3e6ff; #b00d08;*/
+}
+#div3 .arc3 {
+	stroke-weight: 0.1;
+	/*fill: red;*/
+}
+
+#div2 .arc {
+	stroke-weight: 0.1;
+	fill: purple/*#b00d08#1d871b*/;
+}
+
+.selectedRadial {
+	border-radius: 3px;
+	background: #f4f4f4;
+	color: #000;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+	border: 1px solid rgba(200, 200, 200, 0.85);
+}
+
+.radial {
+	border-radius: 3px;
+	background: #FFFFFF;
+	color: #000;
+}
+/* 
+	style.css
+ */
+ 
+ 
+.background {
+    fill: #FFFFFF;
+    fill-opacity: 0.01;
+}
+
+.component {
+    fill: #e1e1e1;
+}
+
+.component .label {
+    font-family: Tahoma, Helvetica, Sans-serif;
+    text-anchor: middle;
+    font-size: 10.5px;
+    /*fill: #0000FF;*/
+}
+
+.arc {
+    stroke-weight:0.1;
+    fill: #4e8fff;
+}
+
+
+.arc2 {
+    stroke-weight:0.1;
+    fill: #3660b0;
+}
+
+.d3-chart {
+  width: 100%;
+  /*height: 77vh;
+  background: radial-gradient(ellipse at center, #2e7294 0%, #1b4a63 100%);*/
+  border-radius: 3px;
+}
+
+.label {
+    font-family:  Tahoma, Helvetica, Sans-serif;
+    text-anchor: middle;
+}
+
+.radial-svg {
+    display: block;
+    margin: 0 auto;
+}

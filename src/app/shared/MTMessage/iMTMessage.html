@@ -1,0 +1,123 @@
+<div style="width: 37vw;">
+	<form #f="ngForm">
+		<div style="width: 100%; height: 3vw;">
+			<div
+				style="float: left; display: inline-block; height: 3vw; width: 50%">
+				<iToolbar #m_toolBar requestType="toolbar" [status]="toolbarStatus"
+					[toolbarList]="toolbarList" (toolbarEvent)="onToolbarClick(f.form)"
+					(submissionValue)="onSubmit(f.form,$event);"></iToolbar>
+			</div>
+			<div
+				style="float: right; display: inline-block; height: 3vw; width: 50%">
+				<table width="100%">
+					<tr>
+
+						<td width="2%"></td>
+
+						<td width="35%"><ilabel for="refId" isLeftLabel="true"
+								txt="RefNo"></ilabel>
+						<td width="45%"><iTextSearch #refId id="refId" name="refId"
+								requestType='ALL_MTN99' placeholder="RefNo"
+								[inputParams]="inputParams" contextUrl='{{this.textSearchRestServicePath}}'
+								[(ngModel)]="v_refId" required="false" (blur)="getMTMessageInfo($event,f.form)"
+								(searchEvent)="getMTMessageInfo($event,f.form)" labelReq="false"></iTextSearch></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<hr>
+
+		<div *ngIf="isStatus || formValid">
+			<iPopup title="{{title}}" popUpType="submit" popUpWidth="40"
+				[(modalFlag)]="modalFlag" (popupclick)="close()">
+			<div style="width: 35vw; overflow: hidden;">
+				<div style="padding: 10px 0px 0px 0px">{{message}}</div>
+				<iPopup-Footer>
+				<div style="display: inline-block;">
+					<iButton compType='rectangle' btnType="button" id="Ok" name="Ok"
+						(ibtnEvent)="close()"></iButton>
+				</div>
+				</iPopup-Footer>
+			</div>
+			</iPopup>
+		</div>
+		<div style="height: 30vh;">
+			<table style="width: 95%; align: center;">
+				<tr>
+					<td width="100%">
+						<table align="center">
+
+							<tr>
+								<td width="8%"><ilabel for="messageType" txt="Message Type"
+										isLeftLabel="true"></ilabel></td>
+								<td width="12%"><iDropdown #comboMapper1 id="comboMapper1"
+										labelReq="false" name="comboMapper1"
+										requestType='SWIFTMSG_DETAIL_MAPPER'
+										contextUrl='{{this.baseUrl}}' placeholder="Message Type"
+										[(ngModel)]="v_comboMapper1" required="true" objReq="false"
+										(change)="messageTypeChange($event)"></iDropdown></td>
+
+							</tr>
+
+							<tr>
+								<td width="8%"><ilabel for="priority" txt="Priority"
+										isLeftLabel="true"></ilabel></td>
+								<td width="12%"><iText #tagMapper2 id="tagMapper2"
+										labelReq="false" name="tagMapper2" [(ngModel)]="v_tagMapper2"
+										requestType='' compType="text" placeholder="Priority"
+										required="true"></iText></td>
+
+							</tr>
+
+							<tr>
+								<td width="8%"><ilabel for="receiver" txt="Receiver"
+										isLeftLabel="true"></ilabel></td>
+								<td width="12%"><iText #tagMapper3 id="tagMapper3"
+										labelReq="false" name="tagMapper3" [(ngModel)]="v_tagMapper3"
+										requestType='' compType="text" placeholder="Receiver"
+										required="true"></iText></td>
+
+							</tr>
+
+							<tr>
+								<td width="8%"><ilabel for="transactionReferenceNumber"
+										txt="Transaction Reference Number" isLeftLabel="true"></ilabel></td>
+								<td width="12%"><iText #tagMapper4 id="tagMapper4"
+										labelReq="false" name="tagMapper4" [(ngModel)]="v_tagMapper4"
+										requestType='' compType="text"
+										placeholder="Transaction Reference Number" required="true"></iText></td>
+
+							</tr>
+
+							<tr>
+								<td width="8%"><ilabel for="relatedReference"
+										txt="Related Reference" isLeftLabel="true"></ilabel></td>
+								<td width="12%"><iText #tagMapper5 id="tagMapper5"
+										labelReq="false" name="tagMapper5" [(ngModel)]="v_tagMapper5"
+										requestType='' compType="text" placeholder="Related Reference"
+										required="true"></iText></td>
+
+							</tr>
+
+							<tr>
+								<td width="8%"><ilabel for="narrative" txt="Narrative"
+										isLeftLabel="true"></ilabel></td>
+								<td width="12%"><iTextarea #areaMapper1 id="areaMapper1"
+										placeholder="Narrative" name="areaMapper1"
+										[(ngModel)]="v_areaMapper1" required="true" labelReq="false"
+										cols='70' rows="10"></iTextarea></td>
+
+							</tr>
+							<br />
+							<br />
+						</table>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		
+		<!-- hidden parameters -->
+		<input id="module" type="hidden" value="" name="module" ngModel="{{module}}"  />
+	</form>
+</div>

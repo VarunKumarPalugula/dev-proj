@@ -1,0 +1,12 @@
+<div #StackedBars id="StackedBars">
+<div class="d3-chart" #chart>
+
+</div>
+</div>
+<div class="progress" *ngIf="prgStatus==true">
+<div class="circle">
+<mat-progress-spinner [mode]="progressMode" id="circleLoading" class="layout"></mat-progress-spinner>
+<span>Loading...</span>
+</div>
+</div>
+<div id="dwnChart" class="d3-chart" #dwnChart style="display: none;"></div>

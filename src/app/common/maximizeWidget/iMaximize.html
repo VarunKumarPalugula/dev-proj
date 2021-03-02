@@ -1,0 +1,13 @@
+<div #myModal id="myModal" class="modal" *ngIf="modalFlag==true">
+	<center style="height:100%">
+		<div class="modal-content-widget">
+		<!--div [ngClass]="this.globalStyle.isLeftDirection?'closeRight':'closeLeft'"><iIcon name="cancel" itype="menu" (handleClickEvent)="onConfirmation(false)" [ngClass]="this.globalStyle.isLeftDirection?'closeRight':'closeLeft'"></iIcon></div-->
+			<div class="modal-header-content-widget">
+			<div class="maximize-header">
+				<h4 style="font-size: inherit;"><b>{{title | uppercase}}</b></h4>
+			</div>
+				<ng-content></ng-content>
+			</div>
+		</div>		
+	</center>
+</div>

@@ -1,0 +1,395 @@
+<html>
+<head>
+	<meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+</head>
+<body>
+	<div #mainHeader style="height: 50px;">
+		<nav class="mainHeader theader">
+			<div class="nav-wrapper">
+				<div class="userInfoDivLeft"
+					[class.userInfoDivRight]="!this.globalStyle.isLeftDirection">
+					<ul id="nav-mobile" class="hide-on-med-and-down"
+						[class.left]="!this.globalStyle.isLeftDirection"
+						[class.right]="this.globalStyle.isLeftDirection">
+						<li class="lineItemLeft" [class.lineItemRight]="!this.globalStyle.isLeftDirection">
+							<div style="position: relative;display: inline-block;line-height: 70px;">
+							<iIcon name="power_settings_new" size="2.2" placeholder="{{'Logout'|translate}}" itype="application" (click)="onClickLogout();"></iIcon>
+							</div>
+						</li>
+						<li class="lineItemLeft" [class.lineItemRight]="!this.globalStyle.isLeftDirection">
+							 <!-- i style="" class="material-icons theadicon">settings</i-->
+							 <div style="position: relative;display: inline-block; line-height: 70px;">
+							 <iIcon name="settings" size="2.2" placeholder="{{'Settings'|translate}}" (click)="toggleSettingsMenu();" itype="application" ></iIcon>
+							 </div>
+						</li>
+						<!--<li class="lineItemLeft" [class.lineItemRight]="!this.globalStyle.isLeftDirection" (click)="toggleNotif();">
+							<div style="position: relative;display: inline-block; line-height: 70px;">
+								<iIcon size="2.2" name="notifications" placeholder="{{'Notifications'|translate}}"  itype="application" ></iIcon>
+								<span class="notifCount" [ngClass]="this.globalStyle.isLeftDirection?'notifLeftIcon':'notifRightIcon'">
+								{{notifArray?.length}}</span>
+							</div>
+						</li>-->
+						<li class="lineItemLeft"
+						[class.lineItemRight]="!this.globalStyle.isLeftDirection"><!-- i class="material-icons" style="float: left; line-height: 54px;font-size: 30px;color: yellow;">notifications</i -->
+							<div class="settingsDropDown collection"
+								[ngClass]="{hide: !settingsMenuOpen}">
+								<ul class="collection">
+									<li class="changeLanguage collection-item"><label
+										style="display: inline-block; margin: 0px 5px 0px 5px"
+										[style.float]="this.globalStyle.isLeftDirection?'left':'right'">Language
+									</label> <select class="browser-default"
+										style="margin: 0px 5px 0px 5px;"
+										[ngStyle]="{direction: this.globalStyle.layoutDirection, float: this.globalStyle.isLeftDirection?'right':'left'}"
+										(change)="this.globalStyle.setLocale($event.target.value); changeSettingsFlag();">
+											<option value="en" selected>English</option>
+											<option value="ar">Arabic</option>
+											<option value="fil">Filipino</option>
+											<!--option value="es">Spanish</option-->
+									</select></li>
+									<li class="changeTheme collection-item"><label
+										style="display: inline-block; margin: 0px 5px 0px 5px"
+										[style.float]="this.globalStyle.isLeftDirection?'left':'right'">Theme
+									</label> <select id="selectTheme" class="browser-default"
+										style="margin: 0px 5px 0px 5px"
+										[ngStyle]="{direction: this.globalStyle.layoutDirection, float: this.globalStyle.isLeftDirection?'right':'left'}"
+										(change)="changeStyle($event.target.value)">
+											<option value="1" selected>Black</option>
+											<option value="2">White</option>
+											<option value="3">Dark Gray</option>
+											<option value="4">Blue Gray</option>
+											<option value="5">Cyan</option>
+											<option value="6">Teal</option>
+									</select></li>
+									<li class="changeLanguage collection-item"><label
+										style="display: inline-block; margin: 0px 5px 0px 5px"
+										[style.float]="this.globalStyle.isLeftDirection?'left':'right'">Save Location
+									</label> <select class="browser-default" id="saveLocOptions" #saveLocOptions
+										style="margin: 0px 5px 0px 5px;"
+										[ngStyle]="{direction: this.globalStyle.layoutDirection, 
+										float: this.globalStyle.isLeftDirection?'right':'left'}" 
+										(change)="saveWinLocation($event.target.value); "
+										>
+											<option value="None" selected>None</option>
+											<option *ngFor="let winName of winNames; let i = index;" 
+												value="{{winName}}" >{{winName}}</option>
+									</select></li>
+								<!--li class="changePassword collection-item"><label>Change
+										Password </label></li-->										
+								<!--li class="changePassword collection-item"><label
+									(click)="dashbrdPref()">&nbsp;&nbsp;{{'Dashboard_Preferences'|translate}} </label></li-->
+								<li class="changePassword collection-item"><label
+									(click)="profilePref(); toggleSettingsMenu();">&nbsp;&nbsp;Profile Settings </label></li>
+								<li class="changePassword collection-item"><label
+									(click)="refreshAdhocReports(); toggleSettingsMenu();">&nbsp;&nbsp;Refresh Reports</label></li>
+								<li class="changePassword collection-item"><label
+									(click)="docPref()">&nbsp;&nbsp;{{'Documentation'|translate}}</label></li>
+								<li class="changePassword collection-item"><label
+									(click)="aboutPref()">&nbsp;&nbsp;{{'About'|translate}}</label></li>
+								<li class="changePassword collection-item"><label
+									(click)="preEodDetails(); ">&nbsp;&nbsp;Pre Eod Check</label></li>
+							</ul>
+						</div></li>
+						<!--<li class="lineItemRight"
+						[class.lineItemLeft]="this.globalStyle.isLeftDirection">
+						<div class="settingsDropDown collection notif"
+							[ngClass]="{hide: !notifFlag}">
+							<ul class="ul-list">
+								<li class="list-item"
+									*ngFor="let item of notifArray; let i = index;">
+									<table>
+										<tr>
+											<td width="3%" align="left"><iIcon id="colorIcon" name="sm-circle" size="1"
+													[ngClass]="item.type == 'error'?'errorCss':(item.type == 'warning'?'warningCss':'infoCss')"></iIcon>
+											<td width="80%" align="left">
+												<div class="notif-item">{{item.msg}}</div>
+											</td>
+											<td width="10%" align="right"><iIcon id="notifIcon"
+													name="sm-delete" (handleClickEvent)="onNotifClose(i)"></iIcon>
+											</td>
+										</tr>
+									</table>
+								</li>
+							</ul>
+						</div>
+					</li>-->
+					<li class="lineItemLeft"
+						[class.lineItemRight]="!this.globalStyle.isLeftDirection"
+						>
+						<ul style="margin-top: -14px; padding: 0;"
+							[style.direction]="this.globalStyle">
+							<li class="userclr"
+								style="height: 15px; float: none; font-size: 1vw;"
+								[style.text-align]="this.globalStyle.isLeftDirection?'left':'right'">{{globalService.getUserName()}}</li>
+							<li class="timeclr" style="height: 20px; float: none; font-size: 12px;">Logged in - {{globalService.applnDate | date : "dd-MMM-yyyy"}} {{globalService.applnTime}}</li>  <!-- {{globalService.applicationDate | date : "dd-MMM-yyyy HH"}} -->
+						</ul>
+					</li>
+					<li class="lineItemLeft"
+						[class.lineItemRight]="!this.globalStyle.isLeftDirection"><img
+						#imgValue align="absMiddle" alt="{{'Logo'|translate}}"
+						title="User Image" class="logoImg"
+						[class.logoImgRight]="!this.globalStyle.isLeftDirection"
+						style="width: 35px; height: 35px; margin-top: -1px; margin-bottom: 14px; border-radius: 50%;"
+						src={{userImageUrl}}></li>
+					<li class="lineItemLeft"
+						[class.lineItemRight]="!this.globalStyle.isLeftDirection"><img
+						#imgValue align="absMiddle" alt="{{'Logo'|translate}}"
+						title="{{'Logo'|translate}}" class="logoImg"
+						[class.logoImgRight]="!this.globalStyle.isLeftDirection"
+						style="width: 75px; height: 40px; margin-top: -1px; margin-bottom: 14px;"
+						src={{bnkLogoUrl}}></li>
+					<!-- li><a (click)="logout();" title="Logout"><i
+						class="material-icons">power_settings_new</i></a></li-->
+				</ul>
+			</div>
+			<div class="searchLeft" (mouseleave)="hideSearchResult()"
+				[class.searchRight]="!this.globalStyle.isLeftDirection">
+				<input type="text" #search name="search" #iValue [(ngModel)]="value"
+					class="round" placeholder="{{'Search'|translate}}"
+					(keyup)="filter()"
+					[style.text-align]="this.globalStyle.isLeftDirection?'left':'right'" />
+				<div class="search-results collection"
+					[ngClass]="{hide: !(filteredList.length > 0)}" #searchResults>
+					<label *ngFor="let searchdata of filteredList"
+						[style.text-align]="this.globalStyle.isLeftDirection?'left':'right'">
+						<a *ngIf="searchdata.fileType=='angular' && !searchdata?.isPopup" class="collection-item" 
+						routerLink={{searchdata.path}} [queryParams]="searchdata.queryParams"
+						routerLinkActive="active" (click)="hideSearchResult();"
+						[ngStyle]="this.globalStyle.getRightSearchStyle()">{{searchdata.dispName}}</a>
+						<a *ngIf="searchdata.fileType!='angular'" class="collection-item" (click)="openWindow(searchdata)"
+						routerLinkActive="active" (click)="hideSearchResult();"
+						[ngStyle]="this.globalStyle.getRightSearchStyle()">{{searchdata.dispName}}</a>
+						<a  *ngIf="(searchdata.fileType == 'angular') && searchdata?.isPopup" (click)="openAngularWindow(searchdata);"  [ngStyle]="this.globalStyle.getRightSearchStyle()" class="collection-item">{{searchdata.title}}</a>
+					</label>
+				</div>
+			</div>
+
+
+			<div class="brand-logo menuDiv"
+				[class.menuDivRight]="!this.globalStyle.isLeftDirection">
+
+				<iIcon id="menu" name="menu" size="2.2"  placeholder="{{'Menu'|translate}}" (click)="menuChange()" itype="application" 
+					[style.float]="this.globalStyle.isLeftDirection?'left':'right'"></iIcon>
+				<img alt="{{'Intellect_Logo'|translate}}" title="{{'Intellect_Logo'|translate}}" src="assets/images/intellect-logo.svg" style="width:112px;height:37px;margin-top: 7px;margin-left: 10px;"
+					(click)="navigate()"
+					[style.float]="this.globalStyle.isLeftDirection?'left':'right'">
+				</div>
+			</div>
+		</nav>
+
+	<!-- div [ngStyle]="{'display':(isModuleHide)? 'none' : 'block'}">
+		<iModule></iModule>
+	</div-->
+</div>
+<!--div class="ticker-wrap">
+<div class="ticker">
+	<div class="ticker__item" *ngFor="let tickerInfo of tickerList" [ngStyle]="{'color': tickerInfo.colorCode }">{{tickerInfo.text}}</div>
+  <div class="ticker__item" style="color:red;">OneTREASURY Delivers a Knockout punch – Goes Live At CITI NAM</div>
+  <div class="ticker__item" style="color:blue;">QFX  processing of consolidated forex transactions in Multi branch (New York, Australia, Europe) goes live</div>
+  <div class="ticker__item" style="color:green;">Complete sign-off of PFD - OneTREASURY in full by all the business groups of the Central Bank of Armenia</div>  
+</div-->
+
+ <div *ngIf="prefValue==true">
+		<iPopup title="{{'Dashboard_Preferences'|translate}}" popUpType="submit"
+			popUpWidth="40" [(modalFlag)] ="modalFlag" (popupclick)="close()">
+		<div style="width: 35vw; overflow: hidden;">
+			<div style="padding: 10px 0px 0px 0px">
+
+			<table style="margin-bottom:2%;">
+			<tr>
+				<th style="padding-left:8%;">{{'Available_Widgets'|translate}}</th>
+				<th></th>
+				<th>{{'Selected_Widgets'|translate}}</th>	
+			</tr>
+			<tr>	
+				<td style="width:42%;">
+					<div style="border: 1px solid black; height: 40vh; width: 12.5vw;
+					 float: left; margin-left: 20%;">
+						<ul *ngFor="let data of prefAvailData" style="padding:0.5%;">
+							<li>{{data.FUNCTION_NAME}}</li>
+						</ul>
+					</div>
+				</td>
+				<td style="width:12%;padding-left:2%;float: none;">
+					
+					<iIcon name="navigate_next" placeholder="{{'Move_Right'|translate}}" style="font-size:48px;"></iIcon><br/>
+					<iIcon name="navigate_before" placeholder="{{'Move_Left'|translate}}" style="font-size:48px;"></iIcon>
+										
+				</td>
+					<td style="width:42%;">
+						<div style="border: 1px solid black; height: 40vh; width: 12.5vw;">
+							<ul *ngFor="let data of prefSelData">
+								<li>{{data.FUNCTION_NAME}}</li>
+							</ul>
+						</div>
+					</td>
+				<td style="width:4%;float: none;">
+				
+					<iIcon name="keyboard_arrow_up" placeholder="{{'Move_Up'|translate}}" style="font-size:48px;"></iIcon><br/>
+					<iIcon name="keyboard_arrow_down"  placeholder="{{'Move_Down'|translate}}" style="font-size:48px;"></iIcon>
+				
+				</td>
+					
+				</tr>
+			</table>			
+				
+			</div>			
+			 <!-- <iPopup-Footer>
+		<button style="width: 5%" md-button color="primary" type="button"
+			(click)="close()">Ok</button>
+		</iPopup-Footer> -->
+		</div>
+		</iPopup>
+	</div>
+
+	
+    <div *ngIf="docValue==true">
+		<iPopup title="{{'Documentation' | translate}}" popUpType="submit"
+			popUpWidth="40" [(modalFlag)] ="modalFlag" (popupclick)="close()">
+			
+		 <div style="width: 35vw; overflow: hidden;" class="settings_bg">
+			<div style="padding: 10px 0px 0px 0px">
+			<table style="margin-bottom:2%;">
+			<tr>
+				<td><div style="margin-left: 5px;">
+				<img alt="{{'Intellect_Logo'|translate}}" title="{{'Intellect_Logo'|translate}}" src="assets/images/intellect-logo-color.png" style="width:117px;height:40px;margin-top: 7px;margin-left: 10px;"
+										[style.float]="this.globalStyle.isLeftDirection?'left':'right'"></div></td>
+			</tr>
+			<tr>
+				<td><div style="margin-left: 25px; margin-top:15px;"><h1><font color="#709fdc">{{'OneTREASURY'|translate}}</font></h1></div></td>
+			</tr>
+			<tr>
+				<td><div style="margin-left: 30px;">
+						<ul style="margin-bottom: 15px;">
+							<li #FX style="margin: 5px"><font color="#f1f1f1">Foriegn Exchange: </font><a target="_blank" href="assets/documents/iPAD/FX-iPAD.pdf">iPAD</a> | <a target="_blank" href="assets/documents/UserManuals/FX_FO_User_Manual.pdf">User Manual</a></li>
+							<li #MM style="margin: 5px"><font color="#f1f1f1">Money Market: </font><a target="_blank" href="assets/documents/iPAD/MM-iPAD.pdf">iPAD</a> | <a target="_blank" href="assets/documents/UserManuals/MM_FO_User_Manual.pdf">User Manual</a></li>
+							<li #FI style="margin: 5px"><font color="#f1f1f1">Fixed Income: </font><a target="_blank" href="assets/documents/iPAD/FIS-iPAD.pdf">iPAD</a> | <a target="_blank" href="assets/documents/UserManuals/FIS_FO_User_Manual.pdf">User Manual</a></li>
+							<li #SP style="margin: 5px"><font color="#f1f1f1">Structured Products: </font><a target="_blank" href="assets/documents/iPAD/SP-iPAD.pdf">iPAD</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+			</table>
+			</div>
+			<iPopup-Footer>
+				<div><font color="#cccccc"><!--a style="color: #cccccc" target="_blank" href="http://www.intellectdesign.com"-->&copy; 2018 Intellect Design Arena Limited.<!--/a--></font></div>
+			</iPopup-Footer>
+		</div>
+		</iPopup>
+	</div>	
+	
+    <div *ngIf="aboutValue==true">
+		<iPopup title="{{'About' | translate}}" popUpType="submit"
+			popUpWidth="40" [(modalFlag)] ="modalFlag" (popupclick)="close()">
+		<div style="width: 35vw; overflow: hidden;" class="settings_bg">
+			<div style="padding: 10px 0px 0px 0px">
+			<table style="margin-bottom:2%;">
+			<tr>
+				<td><div style="margin-left: 5px;">
+				<img alt="{{'Intellect_Logo'|translate}}" title="{{'Intellect_Logo'|translate}}" src="assets/images/ilogo.png" style="width:117px;height:40px;margin-top: 7px;margin-left: 10px;"
+										[style.float]="this.globalStyle.isLeftDirection?'left':'right'"></div></td>
+			</tr>
+			<tr>
+				<td><div style="top: -29px; position: relative;"><h1 style="color: rgba(0, 0, 0, 1); font-weight: bold; z-index: 1;"><font color="#709fdc">{{'Capital Cube'|translate}}</font></h1></div></td>
+			</tr>
+			<tr>
+				<td><div style="margin-left: 30px;">
+						<ul style="margin-bottom: 15px;">
+							<li style="margin: 5px"><font color="#f1f1f1"><b>Version:</b> {{aboutObj.mRevision}}</font></li>
+							<li style="margin: 5px"><font color="#f1f1f1"><b>Launch Date:</b> {{aboutObj.mBuildDate}}</font></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+			</table>
+			</div>
+			<iPopup-Footer>
+				<div><font color="#cccccc"><!--a style="color: #cccccc" target="_blank" href="http://www.intellectdesign.com"-->&copy; 2018 Intellect Design Arena Limited.<!--/a--></font></div>
+			</iPopup-Footer>
+		</div>
+		</iPopup>
+	</div>
+
+<div *ngIf="profilePrefValue==true">
+	<iPopup title="Profile Settings" popUpType="submit" popUpWidth="65"
+		[(modalFlag)]="modalFlag" (popupclick)="profileSettings()">
+	<div style="width: 37vw; height: 20vh; overflow: hidden;">
+		<div style="padding-top: 0.5%; padding-left: 18%">
+			<table>
+				<tr>
+					<th style="width: 82%;">Upload Images</th>
+					<th></th>
+					<th>Preview</th>
+				</tr>
+			</table>
+		</div>
+		
+		<div style="width: 36vw; height: 8vh; overflow: hidden; padding-top: 1%">
+			<div class="prof-label-div-css">
+				<label title="Max Size:100kb (30*30) & File Type:PNG/JPG is allowed">User
+					Image</label>
+			</div>
+			<div class="prof-note-div-css">
+				<span class="prof-note-css">(Max Size: 100kb, 
+					Dimensions: 30 x 30 & File Type: PNG/JPG)</span>
+			</div>
+			<div class="prof-upld-div-css">
+
+				<file-upload (savedImage)="getImage($event)"
+					[allowedMimeType]="allowedMimeType" [maxFileSize]="maxFileSize"
+					url="{{this.url+'userImage'}}" [singleFile]="true"></file-upload>
+			</div>
+
+			<div class="prof-img-div-css">
+				<img alt="{{'Logo'|translate}}" title="{{'Logo'|translate}}"
+					class="logoImg"
+					[class.logoImgRight]="!this.globalStyle.isLeftDirection"
+					style="width: 35px; height: 35px; margin-top: 3px; margin-bottom: 2px;"
+					src={{userImageUrl}}>
+			</div>
+
+		</div>
+		<div style="width: 36vw; height: 8vh; overflow: hidden;">
+			<div class="prof-label-div-css">
+				<label title="Max Size:100kb (30*30) & File Type:PNG/JPG is allowed">Bank
+					Logo</label>
+			</div>
+			<div class="prof-note-div-css">
+				<span class="prof-note-css">(Max Size: 100kb, 
+					Dimensions: 80 x 40 & File Type: PNG/JPG)</span>
+			</div>
+			<div class="prof-upld-div-css">
+
+				<file-upload (savedImage)="getLogo($event)"
+					[allowedMimeType]="allowedMimeType" [maxFileSize]="maxFileSize"
+					url="{{this.url+'bankLogo'}}" [singleFile]="true"></file-upload>
+			</div>
+			<div class="prof-bank-logo-css ">
+				<img alt="{{'Logo'|translate}}" title="{{'Logo'|translate}}"
+					class="logoImg"
+					[class.logoImgRight]="!this.globalStyle.isLeftDirection"
+					style="width: 80px;height: 40px;margin-top: 2px;"
+					src={{bnkLogoUrl}}>
+			</div>
+		</div>
+
+
+	</div>
+
+	</iPopup>
+	
+</div>	
+
+<div *ngIf="eodCheck==true">
+		<iPopup title="Pre EOD Check" popUpType="submit" popUpWidth="75"
+			[(modalFlag)]="modalFlag" (popupclick)="close()">
+			
+			<ipreEodCheck [isAuthRequired]= "false"></ipreEodCheck>
+			
+			</iPopup>
+	</div>
+
+	<iPopup actionType="Logout" popUpType="confirm"
+			[(modalFlag)]="logoutFlag" (popupclick)="logout($event)">
+	</iPopup>
+</body>
+</html>

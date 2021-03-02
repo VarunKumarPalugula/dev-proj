@@ -1,0 +1,11 @@
+	<div style="width:100%; height:100%;">
+		<div style="width:100%; height:100%;" >
+			<iHeader #lheader requestType="userInfo"  (menuStatusChange)="lmenu.toggle($event);" (refreshReportEvent)="lmenu.updateReportList();"></iHeader>
+			<iLeftSideNav  #lmenu requestType="userEntitlements"> <!--  (headerStatusChange)="lheader.toggleBranch($event);" -->
+			</iLeftSideNav>	
+			<!--inotification [notifMessage] = "notifMessage" ></inotification-->
+			<iConsoleBar [(isHide)] = "globalService.isConsole" ></iConsoleBar>
+		</div>
+		
+		
+	</div>

@@ -1,0 +1,35 @@
+ 
+	<div class="d3-chart" style="width:100%;">	
+	    <div id="background" class="layer" data-z-index="0"></div>	
+		<div #vis id="vis" class="layer" data-z-index="1"></div>
+		<div #ui id="ui" class="layer" data-z-index="2"></div>
+
+		<iframe #zoomEvent id="zoomEvent" style="height: 0; width: 100%; z-index: -1; border: 1px solid transparent"></iframe>
+	</div>
+
+	<div #templateCell id="templateCell" type="text/html" style="display: none;">
+        <h1>[[name]]</h1>
+        <ul>
+            <li><span>Tenor: </span><span>[[year]]</span></li>
+            <li><span>Amount: </span><span class="[[colorClass]]">[[valueText]] <span>[[lastDelta]]</span></span></li>
+        </ul>
+    </div>
+
+	<div #templateTreeNode id="templateTreeNode" type="text/html" style="display: none;">
+        <h1>[[key]]</h1>
+        <ul>
+            <li><span>Minimum: </span><span class="[[mincolorClass]]">[[minText]] <span>[[minlastDelta]]</span></span></li>
+            <li><span>Average: </span><span class="[[midcolorClass]]">[[midText]] <span>[[midlastDelta]]</span></span></li>
+            <li><span>Maximum: </span><span class="[[maxcolorClass]]">[[maxText]] <span>[[maxlastDelta]]</span></span></li>
+            <li><span>Amount: </span><span class="[[colorClass]]">[[valueText]] <span>[[lastDelta]]</span></span></li>
+        </ul>
+    </div>
+
+	<div class="top" #controls id="controls" type="text/html" style="width: 100%; display: none;">
+        <ul id="positions">
+			<li><span title="3D View" class="io loop"></span><span></span></li>
+            <li><span title="Left View" class="io expand-left"></span><span></span></li>
+            <li><span title="Right View" class="io expand-right"></span><span></span></li>
+            <li><span title="Flat View" class="io expand-down"></span><span></span></li>            
+        </ul>
+    </div>

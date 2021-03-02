@@ -1,0 +1,30 @@
+<div *ngIf="progressMode=='indeterminate' && layout=='bar'">
+		<mat-progress-bar mode="indeterminate" id="progressLoading" class="layout" ></mat-progress-bar><br/> 
+</div>
+ 
+<!-- <div class="progress" *ngIf="progressMode=='indeterminate' && layout=='circle'" >
+ 		<mat-progress-spinner [mode]="progressMode" id="circleLoading" class="layout" style="width:45px;stroke-width:15px" ></mat-progress-spinner><br/>
+ 		<span  style="font-family:serif;font-style:italic;font-size:14px;">Loading... </span> 
+</div> -->
+
+<div class="progress" *ngIf="progressMode=='indeterminate' && layout=='circle'">
+  <div class="circle">
+	<mat-progress-spinner mode="indeterminate" id="circleLoading" class="layout"></mat-progress-spinner>
+	 <!--span>Loading... </span-->	 
+	</div>
+</div>
+
+
+<div *ngIf="progressMode=='determinate' && layout=='bar'">                     
+   	<mat-progress-spinner  mode="determinate" class="layout" [value]="determinateValue"></mat-progress-spinner>   	
+</div>
+   
+<div *ngIf="progressMode=='determinate' && layout=='bar'">
+	<mat-progress-bar mode="determinate" class="layout"  [value]="determinateValue"></mat-progress-bar> <br/>			
+</div> 
+
+<!--  <label *ngIf="progressMode=='buffer'">Buffer<br/><br/>
+ 	<mat-progress-bar class="md-warn"  mode="{{buffer}}" [value]="bufferValue" [bufferValue]="bufferValue2"></mat-progress-bar>
+ </label> -->
+                                 
+  

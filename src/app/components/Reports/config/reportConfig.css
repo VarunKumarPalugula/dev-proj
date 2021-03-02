@@ -1,0 +1,6 @@
+li a:selected{
+    color: pink;
+}
+li a{
+ color: white;
+}

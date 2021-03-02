@@ -1,0 +1,579 @@
+<panel ititle="Report Config " url="GC" inputParams="{{inputParams}}"
+	style="font-family: Tahoma, Helvetica, sans-serif; font-size:12px;">
+
+<div *ngIf="(formValid==true) ">
+	<iPopup title="{{title}}" popUpType="submit" popUpWidth="40"
+		[(modalFlag)]="modalFlag" (popupclick)="close()">
+	<div style="width: 35vw; overflow: hidden;">
+		<div style="padding: 10px 0px 0px 0px">{{message}}</div>
+		<iPopup-Footer>
+		<div style="display: inline-block;">
+			<iButton compType='rectangle' btnType="button" id="Ok" name="Ok"
+				(ibtnEvent)="close()"></iButton>
+		</div>
+		</iPopup-Footer>
+	</div>
+	</iPopup>
+</div>
+<form #f="ngForm">
+	<div #mainHeader
+		style="height: 80vh; padding-top: 2%; margin-top: 10px;">
+		<table style="width: 100%; align: center;">
+			<tr>
+				<td width="100%">
+
+					<div>
+						<table align="center" style="margin-bottom: 10px;">
+							<tr>
+								<td width="9%"><ilabel for="blotter_Type"
+										isLeftLabel="true" txt="Report Service" [isRequired]="'true'"></ilabel></td>
+								<td width="25%"><iDropdown2 #blotter_Type id="blotter_Type"
+										name="blotter_Type" (searchEvent)="blotterChange($event);"
+										isRefreshEnable="true" inputParams="{{inputParams}}"  placeholder="Report Service"
+										required="true" objReq="false" requestType="services" [showColList]="[1,1,1,1,0,0,0,0,0,0,0,0]"
+										[contextUrl]="ctxUrl" labelReq="false" [(ngModel)]="v_RptService"></iDropdown2></td>
+								<!-- [choiceList] ="blotterList" -->
+								<td width="6%"><ilabel for="Profile" txt="Report"
+										isLeftLabel="true" [isRequired]="'true'"></ilabel></td>
+								<td width="30%"><iTextSearch #profile_type
+										id="profile_type" name="profile_type"
+										[searchIconDisabled]="isPrefDisabled" placeholder="Profiles"
+										[contextUrl]="ctxUrl" [(ngModel)]="v_profile" [showColList]="[1,1,1,1,0,0,1,1]"
+										inputParams="{{inputParams}}" required="true" labelReq="false"
+										requestType="{{'reports/' + blotterId}}"
+										(searchEvent)="getEventDetails($event);"> </iTextSearch></td>
+								<td><iButton name="saveProfile" compType="miniCircle"
+										btnType="submit" iconName="save" [disabled]="isPrefDisabled"
+										(ibtnEvent)="onSubmit(f.form,'save');" value="save">
+									</iButton> <iButton name="deleteProfile" compType="miniCircle"
+										btnType="submit" iconName="delete" [disabled]="isPrefDisabled"
+										(ibtnEvent)="deleteReport(f.form,'delete');" value="save">
+									</iButton> <iButton name="clearProfile" compType="miniCircle"
+										btnType="submit" iconName="refresh"
+										(ibtnEvent)="clear(f.form);" value="save"> </iButton></td>
+							</tr>
+
+						</table>
+					</div>
+
+				</td>
+			</tr>
+		</table>
+
+		<table style="width: 100%; align: center;">
+			<tabs> <tab heading="Criteria" tabHeight="65vh" active="true"
+				style="overflow: scroll;">
+			<table
+				style="width: 95%;position: relative;top: 5%;left: 2.5%;">
+				<tr>
+					<td width="100%">
+						<div>
+
+
+							<table style="width: 100%; align: center;">
+								<tr style="height: 75%;">
+									<td width="50%">
+										<div style="padding-right: 5px;">
+											<table>
+												<!-- width: 96%; -->
+												<tr>
+
+													<td width="50%"
+														style="border: 1px solid darkgray; color: white; text-align: center; font-weight: 400; background: gray; height: 3vh;">ENTITIES</td>
+													<td
+														style="border: 1px solid darkgray; color: white; text-align: center; font-weight: 400; background: gray; height: 3vh;"
+														align="center">PREFERENCE</td>
+
+												</tr>
+												<tr style="height: 40vh;">
+													<td width="50%" height="100%"
+														style="border: 1px solid darkgray; vertical-align: top;">
+														<ul class="collection"
+															style="overflow: auto; margin: 10px; border: none; height: 233px;"
+															*ngIf="listFlag && itemsList.length>0">
+															<li *ngFor="let entity of itemsList; let idx=index;"
+																class="collection-item"
+																style="background: #949090; margin: 3px; line-height: 10px;"
+																(click)="entityClick(entity,idx)"><iIcon
+																	name="fiber_manual_record" size="0.7"
+																	*ngIf="colorList[idx]==1" color="green"></iIcon> <a
+																name="{{entity.criteriaName}}" title={{entity.criteriaName.toUpperCase()}}
+																> <!--[ngStyle]="{'padding':(colorList[idx]==0)?'5px 0px':'5px 0px'}"-->
+																	{{(entity.criteriaName?.length>25)? (entity.criteriaName.toUpperCase() | slice:0:25)+'..':(entity.criteriaName.toUpperCase()) }}
+																	</a></li>
+
+
+														</ul>
+													</td>
+													<td valign="top"
+														style="vertical-align: top; border: 1px solid darkgray;">
+														<div width="200px" *ngIf="listFlag && itemsList.length>0">
+															<center>
+																<div *ngIf="criteriaFieldType=='SL'"
+																	style="margin: 10px; display: inline-block;">
+																	<ilabel isLeftLabel="true" style="float:left"
+																		txt="{{criteriaFieldName}}"></ilabel>
+																	<iCheckbox #entityAll id="entityAll"
+																		style="float:right" name="entityAll" requestType=''
+																		placeholder="All" (chkEvent)="checkAll($event);"
+																		[(ngModel)]="v_entityAll"></iCheckbox>
+
+																	<div style="height: 36vh; display: block;">
+																		<jqxListBox #dataList [source]="source"
+																			(onCheckChange)="checkChange($event)"
+																			[checkboxes]="true" [allowDrop]="true"
+																			[allowDrag]="true" [width]="200"
+																			[displayMember]="'label'" [valueMember]="'label'"
+																			(onDragEnd)="getDataOnDragEnd($event);"
+																			[height]="220" [theme]="'black'"> </jqxListBox>
+
+
+																	</div>
+																</div>
+
+
+																<table *ngIf="criteriaFieldType!='SL'&& listFlag">
+
+																	<tr style="margin: 10px; display: block;">
+																		<td><ilabel isLeftLabel="true"
+																				txt="{{criteriaFieldName}}"></ilabel></td>
+																	</tr>
+
+																	<tr
+																		*ngIf="criteriaFieldType=='N' || criteriaFieldType=='D' || criteriaFieldType=='A'"
+																		style="margin: 10px; display: inline-block;">
+
+																		<td><iDropdown #logic_params id="logic_params"
+																				name="logic_params" isRefreshEnable="true"
+																				inputParams="{{inputParams}}" required="true"
+																				objReq="false" requestType=""
+																				[choiceList]="logicParamList" [contextUrl]="ctxUrl"
+																				labelReq="false"></iDropdown></td>
+
+																		<td
+																			*ngIf="criteriaFieldType=='A' || criteriaFieldType=='AR'"><iAmount
+																				#entityAmount1 id="entityAmount1" labelReq="false"
+																				(iAmtEvent)="getTypeEntityValues($event,'entityAmount1');"
+																				name="entityAmount1" compType='Amount'
+																				placeholder="Amount" [(ngModel)]="v_entityAmount1"
+																				required="true"></iAmount></td>
+																		<div
+																			*ngIf="criteriaFieldType=='A' || criteriaFieldType=='AR'"
+																			style="font-size: 10px; margin-top: 5px;">Format:
+																			*(m,l,t,b)</div>
+
+																		<td
+																			*ngIf="criteriaFieldType=='N' || criteriaFieldType=='NR'"><iNumber
+																				#entityNum1 id="entityNum1" name="entityNum1"
+																				step="0.1" [minVal]="1"
+																				(iNumEvent)="getTypeEntityValues($event,'entityNum1');"
+																				labelReq="false" placeholder="entityNum1"
+																				[(ngModel)]="v_entityNum1" required="true"></iNumber></td>
+
+																	</tr>
+
+																	<tr *ngIf="criteriaFieldType=='D'"
+																		style="margin: 10px; display: inline-block;">
+
+																		<td><iText #date_text1 id="date_text1"
+																				name="date_text1" labelReq="false"
+																				(iTextEvent)="getEntityDate($event,'date_text1')"
+																				[(ngModel)]="v_date_text1" requestType=''
+																				compType="text" placeholder="Remarks"
+																				required="true"></iText></td>
+
+																		<td><iCalendar #entityDate1 id="entityDate1"
+																				[myDate]="appDate" labelReq="false"
+																				(iblurEvent)="getTypeEntityValues($event,'entityDate1');"
+																				name="entityDate1" requestType='Date'
+																				isEditable="true" placeholder="Date"
+																				[(ngModel)]="v_entityDate1" required="true"
+																				time="false"></iCalendar></td>
+
+
+																	</tr>
+																	<tr *ngIf="criteriaFieldType=='DR'"
+																		style="margin: 10px; display: inline-block;">
+
+																		<td><iText #date_text2 id="date_text2"
+																				name="date_text2" labelReq="false"
+																				(iTextEvent)="getEntityDate($event,'date_text2')"
+																				[(ngModel)]="v_date_text2" requestType=''
+																				compType="text" placeholder="Remarks"
+																				required="true"></iText></td>
+																		<td><iCalendar #entityDate2
+																				*ngIf="criteriaFieldType=='DR'" id="entityDate2"
+																				[myDate]="appDate" labelReq="false"
+																				isEditable="true"
+																				(iblurEvent)="getTypeEntityValues($event,'entityDate2');"
+																				name="entityDate2" requestType='Date'
+																				placeholder="Date" [(ngModel)]="v_entityDate2"
+																				required="true" time="false"></iCalendar></td>
+																	</tr>
+
+																	<tr
+																		*ngIf="criteriaFieldType=='AR' || criteriaFieldType=='NR' || criteriaFieldType=='DR'"
+																		style="margin: 10px; display: block;">
+																		<td><ilabel isLeftLabel="true" txt="between"></ilabel></td>
+																	</tr>
+
+																	<tr style="margin: 10px; display: inline-block;">
+																		<td *ngIf="criteriaFieldType=='AR'"><iAmount
+																				#entityAmount2 id="entityAmount2" labelReq="false"
+																				(iAmtEvent)="getTypeEntityValues($event,'entityAmount2');"
+																				name="entityAmount2" compType='Amount'
+																				placeholder="Amount" [(ngModel)]="v_entityAmount2"
+																				required="true"></iAmount></td>
+
+																		<td *ngIf="criteriaFieldType=='NR'"><iNumber
+																				#entityNum2 id="entityNum2" name="entityNum2"
+																				step="0.1" [minVal]="1"
+																				(iNumEvent)="getTypeEntityValues($event,'entityNum2');"
+																				labelReq="false" placeholder="entityNum2"
+																				[(ngModel)]="v_entityNum2" required="true"></iNumber></td>
+																	</tr>
+
+
+
+																	<tr *ngIf="criteriaFieldType=='DR'"
+																		style="margin: 10px; display: inline-block;">
+
+																		<td><iText #date_text3 id="date_text3"
+																				name="date_text3" labelReq="false"
+																				(iTextEvent)="getEntityDate($event,'date_text3')"
+																				[(ngModel)]="v_date_text3" requestType=''
+																				compType="text" placeholder="Remarks"
+																				required="true"></iText></td>
+
+																		<td><iCalendar #entityDate3 id="entityDate3"
+																				[myDate]="appDate" labelReq="false"
+																				(iblurEvent)="getTypeEntityValues($event,'entityDate3');"
+																				name="entityDate3" requestType='Date'
+																				isEditable="true" placeholder="Date"
+																				[(ngModel)]="v_entityDate3" required="true"
+																				time="false"></iCalendar></td>
+
+																	</tr>
+
+
+																	<tr *ngIf="criteriaFieldType=='S'"
+																		style="margin: 10px; display: inline-block;">
+																		<td><iText #entityString id="entityString"
+																				name="entityString" labelReq="false"
+																				[(ngModel)]="v_entityString" requestType=''
+																				compType="text" placeholder="Remarks"
+																				required="true"></iText></td>
+																	</tr>
+																</table>
+															</center>
+														</div>
+													</td>
+
+												</tr>
+
+											</table>
+										</div>
+
+									</td>
+									<td width="5%"></td>
+									<td>
+										<div>
+											<table>
+												<tr>
+													<td width="30%"
+														style="border: 1px solid darkgray; color: white; text-align: center; font-weight: 400; background: gray; height: 3vh;">DEALER
+														GROUPS</td>
+													<td width="30%"
+														style="border: 1px solid darkgray; color: white; text-align: center; font-weight: 400; background: gray; height: 3vh;">DEALERS</td>
+													<td width="30%"
+														style="border: 1px solid darkgray; color: white; text-align: center; font-weight: 400; background: gray; height: 3vh;">USERS</td>
+
+												</tr>
+												<tr style="height: 40vh;">
+													<td valign="top"
+														style="vertical-align: top; border: 1px solid darkgray;">
+														<center>
+															<div style="margin: 10px; display: inline-block;">
+																<iCheckbox #dealerGrpAll id="dealerGrpAll"
+																	style="float:right" name="dealerGrpAll" requestType=''
+																	placeholder="All"
+																	(chkEvent)="onDealerGrpClick($event);"
+																	[(ngModel)]="v_groupAll"></iCheckbox>
+																<jqxListBox #groupListBox [source]="grpSource"
+																	[checkboxes]="true"
+																	(onCheckChange)="OnGroupChange($event)" [width]="190"
+																	[displayMember]="'name'" [valueMember]="'id'"
+																	[height]="220" [theme]="'black'"> </jqxListBox>
+
+															</div>
+														</center>
+
+													</td>
+													<td valign="top"
+														style="vertical-align: top; border: 1px solid darkgray;">
+														<center>
+															<div style="margin: 10px; display: inline-block;">
+																<iCheckbox #dealerAll id="dealerAll" style="float:right"
+																	name="dealerAll" requestType='' placeholder="All"
+																	(chkEvent)="onDealerClick($event);"
+																	[(ngModel)]="v_dealerAll"></iCheckbox>
+																<jqxListBox #dealerListBox [source]="dealerAdapter"
+																	[checkboxes]="true"
+																	(onCheckChange)="OnDealerChange($event)" [width]="190"
+																	[displayMember]="'name'" [valueMember]="'id'"
+																	[height]="220" [theme]="'black'"> </jqxListBox>
+															</div>
+														</center>
+													</td>
+													<td valign="top"
+														style="vertical-align: top; border: 1px solid darkgray;">
+														<center>
+															<div style="margin: 10px; display: inline-block;">
+																<iCheckbox #userAll id="userAll" style="float:right"
+																	name="userAll" requestType='' placeholder="All"
+																	(chkEvent)="onUserClick($event);"
+																	[(ngModel)]="v_userAll"></iCheckbox>
+																<jqxListBox #userListBox [source]="userAdapter"
+																	(onCheckChange)="OnUserChange($event)"
+																	[checkboxes]="true" [width]="190"
+																	[displayMember]="'name'" [valueMember]="'id'"
+																	[height]="220" [theme]="'black'"> </jqxListBox>
+															</div>
+														</center>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</td>
+								</tr>
+							</table>
+
+							<table style="margin: 5px 0px;">
+								<!-- border: 1px solid darkgray; -->
+								<tr>
+									<td colspan="3" align="center">
+										<div
+											style="overflow: auto; height: 10vh; vertical-align: top;">
+											<table align="center" *ngIf="listFlag && itemsList.length>0">
+
+												<tr *ngFor="let enRow of entityRowList; let idx1 = index; ">
+													<td
+														*ngFor="let enCol of entityColList[idx1]; let idx=index; "
+														style="margin: 5px 0px; border: 1px solid darkgray;"
+														[ngStyle]="{'width': (100/entityCols)+'%'}">
+														<table *ngIf="enCol < itemsList.length-1"
+															style="padding: 3px;">
+															<tr align="center">
+																<td><ilabel isLeftLabel="true"
+																		txt="{{itemsList[enCol].criteriaName}}"></ilabel></td>
+															</tr>
+															<tr align="center">
+																<td>{{checkedItems[enCol]}}</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+			</tab> <tab heading="Preferences" tabHeight="65vh"
+				style="overflow: scroll;">
+
+			<table border='1'
+				style="width: 95%;position: relative;top: 5%;left: 2.5%;">
+				<tr>
+					<td width="100%">
+						<!--fieldset>
+							<legend>Grid Preferences</legend-->
+							<div class="divider-css">
+								<span>{{'Grid Preferences' | translate}}</span>
+								<hr>
+							</div>
+
+							<table align="center">
+								<!-- style="margin: 5px 0px;border: 1px solid darkgray;"-->
+
+								<tr *ngFor="let prefr of prefRowList; let idx1 = index; ">
+									<td *ngFor="let prefc of prefColList[idx1]; let idx=index; "
+										[ngStyle]="{'width': (100/prefCols)+'%'}">
+										<div
+											*ngIf="prefc < attributesList.length && privilagesType[attributesList[prefc]].isactive"
+											style="padding: 3px;">
+											<div>
+												<iCheckbox #attributes
+													*ngIf="privilagesType[attributesList[prefc]].columntype=='BOOLEAN' && attributesList[prefc] != 'graph'"
+													id="attributes" name="attributes" requestType=''
+													placeholder="{{attributesList[prefc] | translate}}"
+													(chkEvent)="getGridPriferences($event,privilagesType[attributesList[prefc]],attributesList[prefc]);"
+													[(ngModel)]="v_tree_data"  [disabled]="privilagesType[attributesList[prefc]].disabled"
+													[checkValue]="privilages[attributesList[prefc]]"></iCheckbox>
+													
+													<iCheckbox #attributeschck
+													*ngIf="privilagesType[attributesList[prefc]].columntype=='BOOLEAN' && attributesList[prefc] == 'graph'"
+													id="attributeschk" name="attributeschk" requestType=''
+													placeholder="{{attributesList[prefc] | translate}}"
+													(chkEvent)="getGridPriferences($event,privilagesType[attributesList[prefc]],attributesList[prefc]);"
+													[(ngModel)]="v_tree_data"  [disabled]="true"
+													[checkValue]="privilages[attributesList[prefc]]"></iCheckbox>
+											</div>
+											<div>
+												<iRadio #attrRBoolean style="color: lightblue !important;" *ngIf="privilagesType[attributesList[prefc]].columntype=='RBOOLEAN'"
+												radioType="row" [choiceList]="privilagesType[attributesList[prefc]].columnlist"
+												[disabled]="privilagesType[attributesList[prefc]].disabled" placeholder="{{attributesList[prefc] | translate}}"
+												(radioSelectEvent)="getGridPriferences($event,privilagesType[attributesList[prefc]],attributesList[prefc]);"></iRadio>
+											</div>
+											<div
+												*ngIf="privilagesType[attributesList[prefc]].columntype=='STRING'">
+												<table>
+													<tr>
+
+														<td width="30%"><ilabel isLeftLabel="true"
+																style="float:left" [txt]="attributesList[prefc]"></ilabel></td>
+
+														<td><iText #attrStr id="{{'attrStr'+idx}}"
+																name="{{'attrStr'+idx}}" labelReq="false"
+																(iTextEvent)="getGridPriferences($event,privilagesType[attributesList[prefc]],attributesList[prefc]);"
+																[(ngModel)]="privilages[attributesList[prefc]]"
+																[disabled]="privilagesType[attributesList[prefc]].disabled"
+																requestType='' upperCase="false" compType="text"
+																placeholder="Remarks" required="false"></iText></td>
+
+													</tr>
+												</table>
+											</div>
+										</div>
+									</td>
+								</tr>
+
+							</table>
+						<!--/fieldset>
+
+						<fieldset>
+							<legend>Graph Preferences</legend-->
+
+							<div class="divider-css">
+								<span>{{'Graph Preferences' | translate}}</span>
+								<hr>
+							</div>
+
+							<table align="center">
+								<!-- style="margin: 5px 0px;border: 1px solid darkgray;"-->
+								<!-- *ngIf="privilages['graph']" -->
+
+								<tr *ngFor="let graphr of graphRowList; let idx1 = index; ">
+									<td *ngFor="let graphc of graphColList[idx1]; let idx=index; "
+										[ngStyle]="{'width': (100/graphCols)+'%'}">
+										<div
+											*ngIf=" graphc < graphAttributeList.length && graphPrivilagesType[graphAttributeList[graphc]].isactive"
+											style="padding: 3px;">
+											<div
+												*ngIf="graphPrivilagesType[graphAttributeList[graphc]].columntype=='STRING'">
+												<table>
+													<tr>
+
+														<td width="30%"><ilabel isLeftLabel="true"
+																style="float:left" [txt]="graphAttributeList[graphc]"></ilabel></td>
+
+														<td><iText #graphStr id="{{'graphStr'+idx}}"
+																name="{{'graphStr'+idx}}" labelReq="false"
+																(iTextEvent)="getGraphPriferences($event,graphPrivilagesType[graphAttributeList[graphc]],graphAttributeList[graphc]);"
+																[(ngModel)]="graphPrivilages[graphAttributeList[graphc]]"
+																requestType='' upperCase="false" compType="text"
+																placeholder="Remarks" required="false"
+																[disabled]="!privilages['graph']"></iText></td>
+
+													</tr>
+												</table>
+											</div>
+
+											<div
+												*ngIf="graphPrivilagesType[graphAttributeList[graphc]].columntype=='CLIST'">
+												<table>
+													<tr>
+
+														<td width="30%"><ilabel isLeftLabel="true"
+																style="float:left" [txt]="graphAttributeList[graphc]"></ilabel></td>
+
+														<td><iDropdown #graphCDD id="{{'graphCDD'+idx}}"
+																name="{{'graphCDD'+idx}}" labelReq="false"
+																selectionType="multi" inputParams="{{inputParams}}"
+																[(ngModel)]="graphPrivilages[graphAttributeList[graphc]]"
+																required="false" objReq="false" requestType=""
+																[choiceList]="graphChoiceList[graphc]"
+																(changeEvent)="getGraphPriferences($event,graphPrivilagesType[graphAttributeList[graphc]],graphAttributeList[graphc]);"
+																[contextUrl]="ctxUrl" [disabled]="!privilages['graph']"></iDropdown></td>
+													</tr>
+												</table>
+											</div>
+
+											<div
+												*ngIf="graphPrivilagesType[graphAttributeList[graphc]].columntype=='LIST'">
+												<table>
+													<tr>
+
+														<td width="30%"><ilabel isLeftLabel="true"
+																style="float:left" [txt]="graphAttributeList[graphc]"></ilabel></td>
+
+														<td><iDropdown #graphDD id="{{'graphDD'+idx}}"
+																name="{{'graphDD'+idx}}" labelReq="false"
+																selectionType="single" inputParams="{{inputParams}}"
+																[(ngModel)]="graphPrivilages[graphAttributeList[graphc]]"
+																required="false" objReq="false" requestType=""
+																[choiceList]="graphChoiceList[graphc]"
+																(changeEvent)="getGraphPriferences($event,graphPrivilagesType[graphAttributeList[graphc]],graphAttributeList[graphc]);"
+																[contextUrl]="ctxUrl" [disabled]="!privilages['graph']"></iDropdown></td>
+													</tr>
+												</table>
+											</div>
+
+											<iCheckbox #graphBoolean
+												*ngIf="graphPrivilagesType[graphAttributeList[graphc]].columntype=='BOOLEAN'"
+												id="graphBoolean" name="graphBoolean" requestType=''
+												[placeholder]="graphc"
+												(chkEvent)="getGraphPriferences($event,graphPrivilagesType[graphAttributeList[graphc]],graphAttributeList[graphc]);"
+												[(ngModel)]="v_graphBoolean"
+												[checkValue]="graphPrivilages[graphc]"
+												[disabled]="!privilages['graph']"></iCheckbox>
+										</div>
+									</td>
+								</tr>
+
+							</table>
+						<!--/fieldset>
+
+						<fieldset>
+							<legend>Field Preferences</legend-->
+							<div class="divider-css">
+								<span>{{'Field Preferences' | translate}}</span>
+								<hr>
+							</div>
+
+							<table align="center">
+								<!--style="margin: 5px 0px;"-->
+								<tr>
+									<div *ngIf="listFlag" style="width: 100%; height: 100%;">
+										<iTreeGrid #fieldPref gridHeight="200" gridWidth="100%"
+											[gridDataList]="fieldPreferences" isEditable="true" [theme]="'black'"></iTreeGrid>
+										<!-- contextUrl="{{restServicePath +'viewField/entity/'}}" [requestType]="blotterId" -->
+
+									</div>
+								</tr>
+
+							</table>
+						<!--/fieldset-->
+					</td>
+				</tr>
+			</table>
+			</tab> </tabs>
+		</table>
+	</div>
+</form>
+</panel>
+
+

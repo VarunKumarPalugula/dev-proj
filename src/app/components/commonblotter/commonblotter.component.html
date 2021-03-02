@@ -1,0 +1,62 @@
+<!--Top nav bar-->
+<div class="tn-container">
+   
+    <span class="flex-item item1">Refresh</span>
+    <span class="flex-item item2">Spool</span>
+    <span class="flex-item item3">Preferences</span>
+    <span class="flex-item item4">Authorize</span>
+    <span class="flex-item item5">Exit</span>
+    <span class="flex-item item6">Help</span>
+    <span class="flex-item item7">LIVE</span>
+    <span class="text">Last Refreshed 15-Apr-2020 08:34:37</span>
+
+</div> 
+<!--input fields-->
+<div class="filter-section">
+  <div class="labels">
+       <div class="label label-module">
+             <label>Module: </label>
+         <select name="moduleSelect" [(ngModel)]="filterValue.Module">
+        <option value=""></option>       
+      <option *ngFor="let item of moduleArr">
+             {{item}}
+           </option>
+         </select>
+       </div>
+       <div class="label label-view">
+             <label>View: </label>
+         <select  name="viewSelect" [(ngModel)]="filterValue.View">
+             <option value=""></option>
+           <option *ngFor="let item of viewArr">
+             {{item}}
+           </option>
+         </select>
+       </div>
+       <div class="label label-branch">
+             <label>Branch: </label>
+         <select name="branchSelect" [(ngModel)]="filterValue.Branch">
+             <option value=""></option>
+           <option *ngFor="let item of branchArr">
+             {{item}}
+           </option>
+         </select>
+       </div>
+         
+       </div>
+       <div class="action-btn">
+             <button class="search-btn" (click)="onClick()">Search</button>
+       </div>
+     </div> 
+
+    <!--ag-grid table-->
+     <ag-grid-angular #agGrid
+     style="width: 100%; height: 500px; border: black solid 2px"
+     class="ag-theme-alpine"
+     [rowData]="rowData"
+     [columnDefs]="columnDefs"
+     rowSelection="multiple"
+     
+ >
+ </ag-grid-angular> 
+
+ 

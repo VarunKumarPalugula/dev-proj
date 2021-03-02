@@ -1,0 +1,870 @@
+.blackTheme table {
+    color: rgb(235, 235, 235);
+}
+
+.blackTheme :-ms-input-placeholder {
+    color: transparent !important;
+}
+
+ /** header start **/
+.blackTheme .theader {
+	background-color: rgb(80, 80, 80);
+    border: 1px solid rgb(235, 235, 235);
+}
+.blackTheme .theader .dateclr{
+    background-color: #505050;
+    border: 1px solid rgb(235, 235, 235);
+    color: rgb(235, 235, 235);
+}
+.blackTheme .theader .userclr {
+    color: rgb(255,167,0);
+}
+
+.blackTheme .ticker-wrap {   
+	background: #f5f5f5;
+	border: 1px solid rgb(220, 220, 220);
+}
+
+.blackTheme .ticker-wrap>.ticker>.ticker__item {
+    color: #0c74b7 !important;
+}
+
+.blackTheme .ticon, .blackTheme .tcompicon {
+    color: rgb(235, 235, 235) !important;
+}
+
+.blackTheme .settings_bg > * font {
+    color: rgb(235, 235, 235);
+}
+
+.blackTheme .settings_bg {
+    background: rgb(100, 100, 100) !important;
+}
+
+.blackTheme .round{
+	border-radius: 5px !important;
+    border: 1px solid rgb(177, 172, 172) !important;
+}
+
+.blackTheme a.collection-item {
+    color: rgb(235, 235, 235) !important;
+}
+
+.blackTheme .file-upload__label{
+	color: #fff !important;
+	background: #1670b3 !important;
+}
+
+.blackTheme iicon {
+    outline: none !important;
+}
+
+.blackTheme .settingsDropDown.collection {
+    background-color: #646464 !important;
+}
+
+.blackTheme .collection .collection-item {
+    background-color: rgb(100, 100, 100);
+}
+
+.blackTheme .prof-note-css{
+	color: rgb(235, 235, 235) !important;
+}
+
+.blackTheme .prof-img-div-css, .blackTheme .prof-bank-logo-css { 
+	border: solid 1px rgb(235, 235, 235) !important;
+}
+ /** header end **/
+
+/** leftNave start **/
+.blackTheme .ptitleLeft{
+	background:rgb(80,80,80) !important;
+}
+
+.blackTheme .tmainbody{
+	background: rgb(100, 100, 100) !important;
+}
+
+.blackTheme #mymenu{
+	background: #646464 !important;
+	color: rgb(235, 235, 235) !important;
+	background-size: 100% 100%;
+}
+.blackTheme .jqx-menu-dropdown{
+	background: #646464 !important;
+	color: rgb(235, 235, 235);
+}
+
+.blackTheme .jqx-menu-vertical {
+    background-color: #646464 !important;
+	color: rgb(235, 235, 235);
+}
+.blackTheme .jqx-widget-header {
+	border-color : #646464 !important; 
+}
+
+.blackTheme .jqx-fill-state-pressed,
+.blackTheme .jqx-fill-state-hover, 
+.blackTheme .jqx-menu-item-top-selected,
+.blackTheme .jqx-menu-item-top-hover,
+.jqx-fill-state-pressed-blackTheme,
+.jqx-fill-state-hover-blackTheme,
+.jqx-menu-item-top-selected-blackTheme,
+.jqx-menu-item-top-hover-blackTheme{
+	background-color: rgba(140,140,140,1) !important;
+	color: rgb(235, 235, 235) !important;
+}
+
+.jqx-widget-content-blackTheme {
+    background: #646464;
+    color: rgb(235, 235, 235);
+}
+
+.jqx-widget-black .jqx-grid-cell-black {
+    background: #333 !important;
+}
+
+.jqx-fill-state-normal-black, .jqx-widget-header-black, .jqx-input-button-content-black {
+    color: rgba(255, 175, 0, 1) !important;
+}
+/** leftNave end **/
+
+/** consolebar start**/
+.blackTheme .consoleHighLight {
+    background-color: #FAFAFA !important;
+    color: #fff;
+}
+
+.blackTheme .auditInfo, .blackTheme .helpInfo, .blackTheme .console {
+    border: 1px solid #505050 !important;
+    background-color: rgb(80, 80, 80) !important;
+    border-radius: none !important;
+}
+
+.blackTheme .audit, .blackTheme .help{
+    background-color: inherit !important;
+}
+
+.blackTheme .help{
+	    background-color:#646464 !important;
+}
+
+.blackTheme .audit>*>.tcompicon, .blackTheme .console>.icon>* .tcompicon {
+    color:  #333333 !important;
+}
+
+.blackTheme .audit>*>label, .blackTheme .console>.icon>*>label {
+	color: #333333;;
+}
+
+.blackTheme .help>*>label{
+	color: #006db3;
+}
+
+.blackTheme .slideUp, .blackTheme .toggleAudit{
+    background: rgb(100, 100, 100) !important;
+    color: rgb(235, 235, 235);
+    box-shadow: none !important;
+}
+
+.blackTheme .toggleHelp{
+	box-shadow: none !important;
+}
+
+.blackTheme li.linkOpen {
+    color: rgb(235, 235, 235) !important;
+}
+
+.blackTheme .timeAlign {
+    color: #fafafa !important;   
+}
+
+/** consolebar end**/
+
+
+/**  dashBoard start  **/
+
+/** help start**/
+.blackTheme #helpinfo {
+    background-color: #FAFAFA;
+    color: #333333 !important;
+    text-shadow: none;
+    font-weight: normal;
+	box-shadow: -2px -2px 2px #FAFAFA;
+}
+
+.blackTheme #helpinfo > div > div {
+    box-shadow: inset 0px 0px 10px #333333;
+}
+
+.blackTheme #helpinfo>*>*>h3 {
+    font-weight: normal;
+}
+
+.blackTheme #helpinfo>*>.tmenuicon {
+    background: #333333;
+    border-radius: 13px;
+}
+/**  help end **/
+.blackTheme .modal-header {
+	color: #FAFAFA!important;
+	background-color: #505050 !important;
+    border-color: rgb(136, 136, 136) !important;
+}
+.blackTheme .modal-header-content-widget {
+	background-color: rgb(80, 80, 80) !important;
+}
+
+.blackTheme .widget-container-block{
+	background-color: rgb(80, 80, 80);
+    border: 1px solid rgb(235,235,235);
+	border-radius: 10px;
+}
+
+.blackTheme #maxChart {
+	background: rgb(80,80,80) !important;
+}
+.blackTheme .widget-td {
+	color: rgb(255, 167, 0) !important;
+    font-weight: bold;
+}
+
+.blackTheme .widget-icon>* .tmenuicon {
+    color: rgb(235, 235, 235) !important;
+}
+
+.blackTheme .y text,.blackTheme  .x text,.blackTheme  .legend text {
+    fill: rgb(235, 235, 235) !important;
+    stroke: rgb(235, 235, 235) !important;  
+    font-size: 0.5rem !important;
+    font-size: 0.6rem !important;
+    font-family: calibri !important;
+}
+
+.blackTheme path.domain,.tick line {
+    stroke: rgb(235, 235, 235) !important;
+}
+
+.blackTheme .widget-datetime{
+	color: rgb(235, 235, 235) !important;
+}
+
+.blackTheme .collection>.menuItem>label, .blackTheme .changePassword label {
+    color: rgb(235, 235, 235) !important;
+}
+
+.blackTheme .maximize-header{
+    border-bottom: 1px solid rgb(235, 235, 235);
+	color: rgb(235, 235, 235);
+}
+
+.blackTheme .modal-content-widget{
+    border: 1px solid rgb(235, 235, 235) !important;
+	background-color: rgb(80, 80, 80) !important
+}
+
+/** dashboard end **/
+
+/** common component start ***/
+
+.blackTheme .modal-header, .blackTheme .tpaneltitle {
+    background-color: #646464;
+    color: rgb(235, 235, 235) !important;
+}
+
+/**** panel changes ***/
+
+.blackTheme .routerLink ,.blackTheme .breadcrumbAlign, 
+.blackTheme .tmenuicon {
+    color: rgb(235, 235, 235) !important;
+	font-weight: normal !important;
+	font-family: calibri !important;
+}
+
+.blackTheme .brdcrmb-div {
+    width: 100%;
+    color: inherit !important;
+    border-spacing: 0px;
+}
+
+
+ /**** panel changes ***/
+
+.blackTheme input[type=date]:not(.jqx-input),
+.blackTheme select, select[required], 
+.blackTheme select.required, 
+.blackTheme input[required],  
+.blackTheme input.required, 
+.blackTheme input[type=password], 
+.blackTheme input[type=text]:not(.jqx-input), 
+.blackTheme input[type=number]:not(.jqx-input) {
+	border-left: solid 1px #bbb1b1 !important;
+}
+
+.blackTheme textarea, .blackTheme textarea[required],
+.blackTheme textarea.required{
+	border-left: solid 1px #bbb1b1 !important;
+}
+
+.blackTheme label {
+    color: rgb(255, 175, 0) !important;
+    font-size: 12px !important;
+    font-family: calibri !important;
+}
+
+
+.blackTheme input,.blackTheme select,.blackTheme textarea {
+    background-color: #505050 !important;
+    color: rgb(235, 235, 235) !important;
+}
+
+.blackTheme input[type=checkbox]:disabled,
+.blackTheme input[type=text]:disabled, 
+.blackTheme input[type=number]:disabled, 
+.blackTheme input[type=password]:disabled, 
+.blackTheme input[type=date]:disabled, 
+.blackTheme input[type=radio]:disabled, 
+.blackTheme textarea:disabled{
+    background-color: rgb(100, 100, 100) !important;
+}
+
+.blackTheme input[type=checkbox], .blackTheme input[type=radio] {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.blackTheme select:disabled::-ms-value{
+	background-color: rgb(100, 100, 100) !important;
+    color: rgb(235, 235, 235) !important;
+}
+
+/******* button css **********/
+
+.blackTheme select::-ms-expand {
+    background-color: transparent;
+    border: 0px;
+    color: black;
+}
+
+.blackTheme .mat-mini-fab,
+.blackTheme .mat-mini-fab:not([disabled]):active {
+    background-color: rgb(100, 100, 100) !important;
+}
+
+.blackTheme .toolBarImgRectangle > .mat-raised-button.mat-primary {
+    background-color: #646464 !important;
+}
+.blackTheme .mat-mini-fab, [disabled].mat-fab, 
+.blackTheme [disabled].mat-mini-fab,
+.blackTheme [disabled].mat-raised-button {
+    border-radius: 0% !important;
+    border: 1px solid rgb(210,210,210) !important;
+    box-shadow: none !important;
+}
+
+.blackTheme button:focus {
+    outline: none;
+    background-color: #d0c9c9 !important;
+}
+
+.blackTheme button:disabled {
+    background: rgb(100, 100,100) !important;
+    opacity: 0.5;
+}
+
+.blackTheme button,.blackTheme  label.file-upload__label {
+    border: solid 1px rgb(170, 170, 170) !important;
+    color: rgb(33, 33, 33) !important;
+    background: rgb(255,165,0) !important;
+}
+
+/******* button css end **********/
+
+.blackTheme .modal-content {
+    background-color: rgb(100, 100, 100) !important;
+	color: rgb(235, 235, 235);
+    border: 0.1px solid rgb(235, 235, 235) !important;
+}
+
+.blackTheme .content {
+    border-top-color: rgb(235,235,235) !important;
+}
+
+/*** Data Search Start***/
+
+.blackTheme table.dataTable.stripe tbody tr:nth-of-type(odd),
+.blackTheme table.dataTable.display tbody tr:nth-of-type(odd) {
+    background-color: rgb(100, 100, 100) !important;
+}
+
+.blackTheme table.dataTable tbody tr {
+    background-color: rgb(100, 100, 100) !important;
+}
+
+.blackTheme thead.tpaneltitle, .blackTheme tr.headRow td {
+    background-color: rgb(80,80,80) !important ;
+}
+/*** Data Search End ***/
+
+/**** Calendar ****/
+
+.blackTheme .md2-datepicker {
+    background-color: rgb(100, 100, 100) !important;
+	border-color: rgb(235, 255, 235) !important;
+}
+
+.blackTheme .md2-datepicker > .controls > span.date ,
+.blackTheme .md2-datepicker > .day-names > span,
+.blackTheme .md2-datepicker > .calendar > span > span.day{
+    color: inherit !important;
+}
+
+.blackTheme .md2-datepicker > .day-names {   
+    border-bottom: 1px solid rgb(235, 235, 235);    
+}
+
+.blackTheme .md2-datepicker > .calendar > span:nth-child(7n-1) > span.day,
+.blackTheme .md2-datepicker > .calendar > span:nth-child(7n) > span.day{
+    background: rgb(80, 80, 80) !important;
+}
+
+.blackTheme .md2-datepicker > .calendar > span > span.day.iscurr {
+    background: rgb(255, 165, 0) !important;   
+}
+
+.blackTheme .md2-datepicker > .calendar > span > span.day:hover {
+    background: rgb(142, 115, 65) !important;
+}
+
+.blackTheme .md2-datepicker > .calendar > span > span.day.selected {
+    background: rgb(235, 235, 235) !important;    
+    color: rgb(80, 80, 80) !important;
+}
+/** Calendar ***/
+
+
+/** Caurousel ***/
+
+.blackTheme .carl-div{
+	background: rgb(100, 100, 100) !important;
+}
+.blackTheme .carl-td {
+    background: rgb(80,80,80) !important; 
+    border: 1px solid rgb(235,235,235) !important; 
+}
+
+.blackTheme .carl-txtara {
+    background: rgb(100,100,100) !important; 
+}
+
+.blackTheme #checkboxes {
+    background-color: rgba(80, 80, 80, 1) !important;
+	 border: 1px solid rgb(235,235,235) !important;
+}
+
+.blackTheme #colordiv [_ngcontent-c30]:hover {
+    background-color: rgba(100, 100, 100, 1) !important;
+}
+
+/** common component end ***/
+
+.blackTheme .divider-css {
+    font-weight: bold;
+    font-size: 1vw;
+	font-family: calibri !important;
+}
+
+
+
+/*** Position Blotter ***/
+.blackTheme .blotterDiv{
+    background-color: rgb(80,80,80) !important;
+}
+
+.blackTheme .aggHeaderCol, .blackTheme .wrapHeader-txtColor {
+    color: #adff2f;
+}
+
+.blackTheme .aggHeaderColVal {
+    color: #ffff00;
+}
+
+.blackTheme .wrapValue-txtColor {
+    color: rgb(235,235,235);
+}
+
+.blackTheme .blotter-total-txtColor{
+	color: #00ffff;
+}
+
+/**** Position Blotter end ***/
+
+/*** tab start ****/
+
+.blackTheme #dolphinnav ul li{
+	border-radius: 15px 0px 0px 0px;
+}
+.blackTheme #dolphinnav ul li.active{
+	background: rgb(100, 100, 100) !important;
+}
+
+.blackTheme #dolphinnav ul li {    
+    border: solid 1px rgb(235, 235, 235) !important;
+}
+
+.blackTheme .tab-hover {
+       background: rgb(100,100,100) !important;
+    border: solid 1px rgb(235, 235, 235) !important;
+}
+
+.blackTheme #dolphinnav ul li a {   
+    color: rgb(235, 235, 235) !important;
+}
+
+ /*** dcd override msg **/
+.blackTheme .ovride-msg {
+    color: rgb(235,235,235) !important;
+}
+/*** tab end ***/
+
+/*** preEod ***/
+.blackTheme li.list-item :hover {
+    background: rgb(100, 100, 100) !important;
+}
+
+.blackTheme li.list-item:nth-child(even) {
+    background: rgb(100, 100, 100) !important;
+}
+
+.blackTheme li.list-item {
+    background-color: rgb(80, 80, 80) !important;
+}
+
+/** White Theme **/
+ /** header start **/
+.whiteTheme .theader{
+	background-color: #ffffff;
+    border: 1px solid rgba(220, 220, 220, 0.92);
+}
+.whiteTheme .ticker-wrap {   
+	background: #f5f5f5;
+	border: 1px solid rgba(220, 220, 220, 0.92);
+}
+
+.whiteTheme .ticker-wrap>.ticker>.ticker__item {
+    color: #0c74b7 !important;
+}
+
+.whiteTheme .ticon {
+    color: grey !important;
+}
+
+.whiteTheme .settings_bg > * font {
+    color: black;
+}
+
+.whiteTheme .settings_bg {
+    background: rgb(235, 235, 235) !important;
+}
+
+.whiteTheme .theader {    
+    color: black;  
+	font-weight: bold !important;
+}
+
+.whiteTheme .round{
+	border-radius: 5px !important;
+    border: 1px solid rgba(177, 172, 172, 0.92) !important;
+}
+
+.whiteTheme #menu>.ticon {
+    color: #006db3 !important;
+}
+
+.whiteTheme a.collection-item {
+    color: #006db3 !important;
+}
+
+.whiteTheme .file-upload__label{
+	color: #fff !important;
+	background: #1670b3 !important;
+}
+
+.whiteTheme iicon {
+    outline: none !important;
+}
+ /** header end **/
+
+/** leftNave start **/
+.whiteTheme #analyticsDiv, .whiteTheme .tmainbody, .whiteTheme .ptitleLeft{
+	background: #ffffff !important;
+}
+.whiteTheme #mymenu{
+	background-image: url('/images/NavigatorBG.gif');
+	background-size: 100% 100%;
+}
+.whiteTheme .jqx-menu-vertical {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/** leftNave end **/
+
+
+/** consolebar start**/
+.whiteTheme .consoleHighLight {
+    background-color: #FAFAFA !important;
+    color: #fff;
+}
+
+.whiteTheme .auditInfo, .whiteTheme .helpInfo, .whiteTheme .console {
+    border: 1px solid #FAFAFA !important;
+    background-color: #EEEEEE !important;
+    border-radius: 0px !important;
+}
+
+
+
+.whiteTheme .audit, .whiteTheme .help{
+    background-color: inherit !important;
+    border-radius: inherit
+}
+
+.whiteTheme .help{
+	    background-color: #dae9f3 !important;
+}
+
+.whiteTheme .audit>*>.tcompicon, .whiteTheme .console>.icon>* .tcompicon {
+    color:  #333333 !important;
+}
+
+.whiteTheme .audit>*>label, .whiteTheme .console>.icon>*>label {
+	color: #333333;;
+}
+
+.whiteTheme .help>*>label{
+	color: #006db3;
+}
+
+.whiteTheme .slideUp, .whiteTheme .toggleAudit{
+    background: #DAE9F3 !important;
+	color: #333333;
+}
+
+.whiteTheme .toggleHelp{
+	background: #ffffff !important;
+}
+
+/** consolebar end**/
+
+
+/**  dashBoard start  **/
+
+/** help start**/
+.whiteTheme #helpinfo {
+    background-color: #FAFAFA;
+    color: #333333 !important;
+    text-shadow: none;
+    font-weight: bold;
+	box-shadow: -2px -2px 2px #FAFAFA;
+}
+
+.whiteTheme #helpinfo > div > div {
+    box-shadow: inset 0px 0px 10px #333333;
+}
+
+.whiteTheme #helpinfo>*>*>h3 {
+    font-weight: bold;
+}
+
+.whiteTheme #helpinfo>*>.tmenuicon {
+    background: #333333;
+    border-radius: 13px;
+}
+
+/**  help end **/
+
+
+.whiteTheme .modal-header {
+	color: #FAFAFA!important;
+}
+.whiteTheme .modal-header-content-widget {
+    padding: 0.5% 0.6% 0.5% 0.5% !important;
+}
+
+.whiteTheme .widget-container-block{
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgba(220, 220, 220, 0.92);
+	border-radius: 10px;
+}
+
+.whiteTheme #maxChart {
+	background: rgb(255, 255, 255) !important;
+}
+.whiteTheme .widget-td {
+	color: #333333 !important;
+    font-weight: bold;
+}
+
+.whiteTheme .widget-icon>* .tmenuicon {
+    color: #006db3 !important;
+}
+
+.whiteTheme .y text,.whiteTheme  .x text,.whiteTheme  .legend text {
+    fill: rgb(8, 8, 8) !important;
+    stroke: rgb(72, 71, 71) !important;  
+    font-size: 0.5rem !important;
+    font-size: 0.6rem !important;
+    font-family: calibri !important;
+}
+
+.whiteTheme path.domain,.whiteTheme .tick line {
+    stroke: rgb(72, 71, 71) !important;
+}
+
+.whiteTheme .widget-datetime{
+	color: #0c74b7 !important;
+}
+
+.whiteTheme .collection>.menuItem>label, 
+.whiteTheme .changePassword label {
+    color: #0c74b7 !important;
+}
+
+/** dashboard end **/
+
+/** common component start ***/
+
+.whiteTheme .modal-header, .whiteTheme .tpaneltitle {
+    background-color: #EEEEEE;
+    color: black !important;
+}
+
+/**** panel changes ***/
+
+.whiteTheme .routerLink ,.whiteTheme .breadcrumbAlign, 
+.whiteTheme .tmenuicon {
+    color: #333333 !important;
+	font-weight: bold !important;
+	font-family: calibri !important;
+}
+
+.whiteTheme .brdcrmb-div {
+    color: inherit !important;
+}
+
+.whiteTheme .ptitleLeft {   
+    background: #F8F9FB !important; 
+}
+
+ /**** panel changes ***/
+
+.whiteTheme input[type=date]:not(.jqx-input),
+.whiteTheme select, 
+.whiteTheme select[required],
+.whiteTheme select.required,
+.whiteTheme input[required],  
+.whiteTheme input.required,
+.whiteTheme input[type=password],
+.whiteTheme input[type=text]:not(.jqx-input),
+.whiteTheme input[type=number]:not(.jqx-input) {
+	border-left: solid 1px #bbb1b1 !important;
+}
+
+.whiteTheme textarea,
+.whiteTheme textarea[required],
+.whiteTheme textarea.required{
+	border-left: solid 1px #bbb1b1 !important;
+}
+
+.whiteTheme label {
+    color: #333333 !important;  
+	font-size: 12px !important;
+	font-family: calibri !important;
+    font-weight: bold !important;
+}
+
+/******* button css **********/
+
+.whiteTheme select::-ms-expand {
+    background-color: transparent;
+    border: 0px;
+    color: black;
+}
+
+.whiteTheme .mat-mini-fab,
+.whiteTheme .mat-mini-fab:not([disabled]):active {
+    background-color: #eeeeee !important;
+}
+
+.whiteTheme .toolBarImgRectangle > .mat-raised-button.mat-primary {
+    background-color: #eeeeee !important;
+}
+.whiteTheme .mat-mini-fab, 
+.whiteTheme [disabled].mat-fab, 
+.whiteTheme [disabled].mat-mini-fab,
+.whiteTheme [disabled].mat-raised-button {
+    border-radius: 0% !important;
+    border: 0px !important;
+    box-shadow: none !important;
+}
+
+.whiteTheme button:focus {
+    outline: none;
+    background-color: #d0c9c9 !important;
+}
+/******* button css end **********/
+
+/** common component end ***/
+
+.whiteTheme .divider-css {
+    font-weight: bold;
+    font-size: 1vw;
+	font-family: calibri !important;
+}
+
+/*** Position Blotter ***/
+.whiteTheme .blotterDiv{
+    background-color: #FFFFFF !important;
+}
+
+.whiteTheme .aggHeaderCol, .whiteTheme .wrapHeader-txtColor {
+    color: #5992dc;
+}
+
+.whiteTheme .aggHeaderColVal {
+    color: #2045d4;
+}
+
+.whiteTheme .wrapValue-txtColor {
+    color: #007cff;
+}
+
+.whiteTheme .blotter-total-txtColor{
+	color: #5a2a4b;
+}
+
+/**** Position Blotter end ***/
+
+/*** tab start ****/
+
+.whiteTheme #dolphinnav ul li{
+	border-radius: 15px 0px 0px 0px;
+}
+.whiteTheme #dolphinnav ul li.active{
+	background: #DAE9F3 !important;
+}
+
+.whiteTheme #dolphinnav ul li.active a span {
+    color: #007CBB !important;
+}
+
+.whiteTheme #dolphinnav ul li {    
+    border: solid 2px #DAE9F3 !important;
+}
+
+.whiteTheme .tab-hover {
+    background: #69bcf3 !important;
+    border: solid 1px #69bcf3 !important;
+}
+
+/*** tab end ***/
+/** EOF White Theme **/

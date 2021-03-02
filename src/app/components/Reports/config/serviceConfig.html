@@ -1,0 +1,229 @@
+<panel ititle="Report Service" >
+
+<div class="componentBlock" direction="this.globalStyle.layoutDirection"
+	[style.float]="this.globalStyle.isLeftDirection?'left':'right'"
+	style="display: block; height: 5.5vh; width: 100%; margin-top: 3px;">
+	<div>
+	<iToolbar #toolBar requestType="toolbar" [status]="toolbarStatus"
+		[toolbarList]="toolbarList" (toolbarEvent)="onToolbarClick(f.form)"
+		(submissionValue)="onSubmit(f.form,$event,treeGridList);"></iToolbar>
+	</div>
+</div>
+<hr>
+<form #f="ngForm">
+	<div style="height: 70vh;">
+		<center>
+			<table style="width: 99%;height:70vh;align: center;">
+				<tr> 
+					<td width="100%" style="display: block;">
+						<!--fieldset style="margin: 5px 0px;">
+							<legend>Service Details</legend-->
+							<div class="divider-css">
+								<span>{{'Service Details' | translate}}</span>
+								<hr>
+							</div>
+							<table align="center">
+								
+								<tr height="25px">
+									<td width="9%"><ilabel for="reportServiceId"
+											txt="Report Service Id" isLeftLabel="true"></ilabel></td>
+									<td width="12%"><iDropdown2 #reportServiceId
+											id="reportServiceId" name="reportServiceId"
+											placeholder="Report Service Id" requestType="/ucf/services/reportservice/services"
+											[(ngModel)]="v_reportServiceId" [showColList]="[1,1,1,1,0,0,0,0,0,0,0,0]"
+											(searchEvent)="serviceChange($event.value)"
+											labelReq="false" isRefreshEnable ="true"></iDropdown2></td>
+
+									<td width="5%"><ilabel for="module" txt="Module"
+											isLeftLabel="true" [isRequired]="'true'"></ilabel></td>
+									<td width="12%"><iDropdown #module id="module" name="module"
+									 placeholder="Module" [choiceList]="moduleList"
+									[(ngModel)]="v_module" required="true" objReq="false"
+									labelReq="false"></iDropdown>									
+									<!--iText #module id="module" name="module"
+											placeholder="Module" [(ngModel)]="v_module" required="true"
+											labelReq="false"></iText--></td>
+
+									<td width="7%"><ilabel for="officeType" txt="Office Type"
+											isLeftLabel="true" [isRequired]="'true'"></ilabel></td>
+									<td width="12%"><iDropdown #officeType id="officeType" name="officeType"
+									 placeholder="Office Type" [choiceList]="OffcTypeList"
+									[(ngModel)]="v_officeType" required="true" objReq="false"
+									labelReq="false"></iDropdown>
+									<!--iText #officeType id="officeType"
+											name="officeType" placeholder="Office Type"
+											[(ngModel)]="v_officeType" required="true" labelReq="false"></iText--></td>
+
+									<td width="8%"><ilabel for="serviceName"
+											txt="Service Name" isLeftLabel="true" [isRequired]="'true'"></ilabel></td>
+									<td width="12%"><iText #serviceName id="serviceName"
+											name="serviceName" placeholder="Service Name"
+											[(ngModel)]="v_serviceName" required="true" labelReq="false"></iText></td>
+									<td width="8%"><ilabel for="viewName" txt="View Name"
+											isLeftLabel="true" [isRequired]="'true'"></ilabel></td>
+									<td width="12%"><iText #viewName id="viewName"
+											name="viewName" placeholder="View Name"
+											[(ngModel)]="v_viewName" required="true" labelReq="false"
+											(iTextEvent)="viewChange($event.value)"></iText></td>
+
+								</tr>
+								<input id="moduleName" type="hidden" value="" name="moduleName" [(ngModel)]="module.selectedItem.name"/>
+								<input id="officeName" type="hidden" value="" name="officeName" [(ngModel)]="officeType.selectedItem.name"/>
+								<!--tr height="25px">
+
+									
+
+									<td width="10%"><ilabel for="moduleName" txt="Module Name"
+											isLeftLabel="true"></ilabel></td>
+									<td width="12%"><iText #moduleName id="moduleName"
+											name="moduleName" placeholder="Module Name"
+											[(ngModel)]="v_moduleName" required="true" labelReq="false"></iText></td>
+
+									<td width="10%"><ilabel for="officeName" txt="Office Name"
+											isLeftLabel="true"></ilabel></td>
+									<td width="12%"><iText #officeName id="officeName"
+											name="officeName" placeholder="Office Name"
+											[(ngModel)]="v_officeName" required="true" labelReq="false"></iText></td>
+								</tr-->
+							</table>
+						<!--/fieldset> 
+						<fieldset style="margin: 5px 0px;">
+							<legend>Grid Preferences</legend-->
+							<div class="divider-css">
+								<span>{{'Grid Preferences' | translate}}</span>
+								<hr>
+							</div>
+							<table align="center">
+								<tr height="25px">
+									
+									<td width="12%"><iCheckbox #treeData id="treeData"
+											name="treeData" placeholder="Tree Data" 
+											[(ngModel)]="v_treeData" labelReq="false"></iCheckbox></td>
+											
+									
+									<td width="12%"><iCheckbox #rowInfo id="rowInfo"
+											name="rowInfo" placeholder="Row Info" [(ngModel)]="v_rowInfo"
+											labelReq="false"></iCheckbox></td>
+
+									<td width="12%"><iCheckbox #datagrp id="datagrp"
+											name="datagrp" placeholder="Data Group"
+											[(ngModel)]="v_datagrp" labelReq="false"></iCheckbox></td>
+
+									<td width="12%"><iCheckbox #sortble id="sortble"
+											name="sortble" placeholder="Sortble" [(ngModel)]="v_sortble"
+											labelReq="false"></iCheckbox></td>
+
+									<td width="12%"><iCheckbox #filterable id="filterable"
+											name="filterable" placeholder="Filterable"
+											[(ngModel)]="v_filterable" labelReq="false"></iCheckbox></td>
+
+									<td width="12%"><iCheckbox #aggregates id="aggregates"
+											name="aggregates" placeholder="Aggregates"
+											[(ngModel)]="v_aggregates" labelReq="false"></iCheckbox></td>
+
+									<td width="12%"><iCheckbox #pdfExport id="pdfExport"
+											name="pdfExport" placeholder="PDF Export"
+											[(ngModel)]="v_pdfExport" labelReq="false"></iCheckbox></td>
+											
+									</tr>
+
+								
+
+								<tr height="25px">
+
+									<td width="12%"><iCheckbox #excelExport id="excelExport"
+											name="excelExport" placeholder="Excel Export"
+											[(ngModel)]="v_excelExport" labelReq="false"></iCheckbox></td>
+
+									<td width="12%"><iCheckbox #csvExport id="csvExport"
+											name="csvExport" placeholder="CSV Export"
+											[(ngModel)]="v_csvExport" labelReq="false"></iCheckbox></td>
+									<td width="12%"><iCheckbox #print id="print" name="print"
+											placeholder="Print" [(ngModel)]="v_print" labelReq="false"></iCheckbox></td>
+
+									<td width="12%"><iCheckbox #refresh id="refresh"
+											name="refresh" placeholder="Refresh" [(ngModel)]="v_refresh"
+											labelReq="false"></iCheckbox></td>
+									<td width="12%"><iCheckbox #graph id="graph" [disabled]="true"
+											name="graph" placeholder="Graph" [(ngModel)]="v_graph"
+											labelReq="false"></iCheckbox></td>
+									<td width="12%"><input #nestedTable  id="nestedTable"
+											name="nestedTable" value="false" type="hidden"
+											[(ngModel)]="nestedTable.value" ></td>											
+									<td width="12%"><input #nestedrepserId id="nestedrepserId"
+											name="nestedrepserId" [(ngModel)]="nestedrepserId.value" value="false" type="hidden"
+											></td>
+								</tr>
+							</table>
+						<!--/fieldset>
+
+						<fieldset style="margin: 5px 0px;">
+
+							<legend>Field Details</legend-->
+							<div class="divider-css">
+								<span>{{'Field Details' | translate}}</span>
+								<hr>
+							</div>
+							<div *ngIf = "treeList">
+						
+							<iTreeGrid style="display:block;width:100%;height: 44vh;" #treeGridList gridHeight="100%" gridWidth="100%"
+								[gridDataList]="gridList" [isEditable]="true" [theme]="'black'" ></iTreeGrid>
+
+							</div>
+						<!--/fieldset-->
+					</td>
+				</tr>
+			</table>
+		</center>
+	</div>
+
+</form>
+		<iPopup title="Status" popUpType="submit" popUpWidth="40"
+			[(modalFlag)] ="modalFlag" (popupclick)="close()">
+		<div style="width: 35vw; overflow: hidden;">
+			<div style="padding: 10px 0px;">{{message}}</div>
+				<form #vf="ngForm">
+					<div style="padding-left: 15px; padding-right: 15px;">
+						<table>
+							<tr>
+								<td width="25%"><ilabel for="viewName" txt="View Name"
+												isLeftLabel="true" [isRequired]="'true'"></ilabel></td>
+								<td width="75%"><iText  id="viewName"
+										name="viewName" placeholder="View Name"
+										[(ngModel)]="v_viewName" required="true" labelReq="false"></iText></td>
+							</tr>
+							<tr>
+								<td width="25%" style="padding-top: 1vw;">
+									<ilabel for="query" txt="Query"
+										isLeftLabel="true"></ilabel></td>
+								<td width="75%" style="padding-top: 1vw;"> 
+									<iTextarea  id="query" placeholder="Query"
+										name="query" [(ngModel)]="v_query"
+										required="false" labelReq="false" cols='70' rows="10"></iTextarea></td>
+							</tr>
+						</table>
+						</div>
+				</form>
+			<iPopup-Footer>
+			<div style="display: inline-block;">
+				<iButton compType='rectangle' btnType="button" id="Submit" name="Submit"
+					(click)="viewSubmit(vf.value);close();"></iButton>
+			</div>
+			</iPopup-Footer>
+		</div>
+		</iPopup>
+		
+		
+		<iPopup title="Status" popUpType="submit" popUpWidth="40"
+			[(modalFlag)] ="viewModalFlag" (popupclick)="close()">
+		<div style="width: 35vw; overflow: hidden;">
+			<div style="padding: 10px 0px;">{{message}}</div>				
+			<iPopup-Footer>
+			<div style="display: inline-block;">
+				<iButton compType='rectangle' btnType="button" id="Ok" name="OK"
+					(click)="close();"></iButton>
+			</div>
+			</iPopup-Footer>
+		</div>
+		</iPopup>
+</panel>

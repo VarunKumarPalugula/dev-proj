@@ -1,0 +1,23 @@
+/* input[required], input.required  {
+  border-left: 5px solid #ed1212!important;
+  width: calc(100% - 25px) !important;
+} 
+
+/* input[required]{
+  border-left: 5px solid #ed1212!important;
+  width: calc(100% - 32px) !important;
+}
+
+input[required] {
+  border-right: 5px solid #ed1212!important;
+  width: calc(100% - 32px) !important;
+} */
+
+/* input.ng-invalid:not(form),select.ng-invalid:not(form)  {
+   border-left: 5px solid #ed1212;  red
+} */
+
+/* select[required], select.required {
+   border-left: 5px solid #ed1212;
+}*/
+ 

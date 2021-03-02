@@ -1,0 +1,182 @@
+
+<div style="width:100%;padding: 5px;">	
+
+	<div *ngIf="(isMessageShow==true)">
+		<iPopup title="Eod Status" popUpType="submit" popUpWidth="40"
+			[(modalFlag)]="modalFlag" (popupclick)="close()">
+		<div style="width: 35vw; overflow: hidden;">
+			<div style="padding: 10px 0px 0px 0px">{{message}}</div>
+			<iPopup-Footer>
+			<div style="display: inline-block;">
+				<iButton compType='rectangle' btnType="button" id="Ok" name="Ok"
+					(ibtnEvent)="close()"></iButton>
+			</div>
+			</iPopup-Footer>
+		</div>
+		</iPopup>
+	</div>
+	
+	<div class="modal" *ngIf="isMaxShow==true">
+		<div class="modal-content">
+			<div class="modal-header" >
+			<iIcon style="float:right;" name="cancel"  [ngClass]="this.globalStyle.isLeftDirection?'closeRight':'closeLeft'" (click)="checkFlag()"></iIcon>
+				<div style="color:#150303;">Suggestive Action</div>
+				
+			</div>
+	
+				<div style="margin-top:2%;"><span style="font-size:0.9vw;">{{popupMessage}}</span></div>
+		</div>
+	</div>
+
+	<div style="width:100%;padding:1px;">
+		<div style=" height: 3vw;margin-top: 1.2%; " >
+			<table width="100%" style="margin-top: 4px; margin-right: 7px;">
+				<tr>
+					<td style="width: 20%;">
+						<div class="filter-div">
+						<iDropdown class="notifDpd" #m_Module id="category"
+							 name="Module" (changeEvent)="eodFilterDetails('m_Module',$event);" 
+							placeholder="Module" [choiceList]="moduleList" labelReq="true"></iDropdown>
+						</div>
+					</td>
+					<td style="width: 10%;">
+						<div class="filter-div">
+							<iDropdown class="notifDpd" #m_Office_Type  id="type" name="type"
+								 placeholder="OfficeType" (changeEvent)="eodFilterDetails('m_Office_Type',$event);" 
+								[choiceList]="officeTypeList" labelReq="true"></iDropdown>
+						</div>
+					</td>
+					<td style="width: 20%;">
+						<div class="filter-div">
+							<iDropdown class="notifDpd" #m_Category_Group  id="type" name="type"
+								 placeholder="Category Group" (changeEvent)="eodFilterDetails('m_Category_Group',$event);" 
+								[choiceList]="CategoryGroupList" labelReq="true"></iDropdown>
+						</div>
+					</td>
+					<td style="width: 15%;">
+						<div class="filter-div">
+							<iDropdown class="notifDpd" #m_Ovr_Err  id="type" name="type"
+								 placeholder="Message Type" (changeEvent)="eodFilterDetails('m_Ovr_Err',$event);" 
+								[choiceList]="MesssageTypeList" labelReq="true"></iDropdown>
+						</div>
+					</td>
+					<td style="width: 18%;">
+						<div class="filter-div" style="margin-top: 5%;">
+							<!--iButton name="search" compType="miniCircle" btnType="submit"
+								iconName="search" (ibtnEvent)="eodFilterDetails('m_Office_Type',m_Office_Type?.value);" value="Search">
+							</iButton-->
+							<iButton name="Reset" compType="rectangle" btnType="submit"
+								 (ibtnEvent)="eodFilterClear(m_Module,m_Office_Type,m_Category_Group,m_Ovr_Err);"
+								value="Reset"> </iButton>
+							<iButton name="refresh" compType="rectangle" btnType="submit"
+								 (ibtnEvent)="eodRefresh();"
+								value="Refresh"> </iButton>
+						</div>
+					</td>
+					<td style="color: #039be5;width:17%;vertical-align:bottom">
+						<span  style="float: right;">Last Updated: {{globalService.applnDate | date :
+								"dd-MMM-yyyy"}} {{globalService.applnTime}}</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<table style="width:100%; margin-top: 0.5%; ">
+			<tr class="header">
+
+				<td width="12%"><span>Category Group</span></td>
+				<td width="10%">
+					<span>Message Type</span> 
+					<!--span style="width: 0.1vw;min-width: 0.1vw;max-width: 40px;overflow: hidden;">
+											
+							<iIcon name="swap_vert" (handleClickEvent)="sort(indx)" size="1.5" itype="menu"></iIcon>
+													
+					</span-->
+				</td>
+				<td width="20%">
+					<span>Category</span>
+					<!--span style="width: 0.1vw;min-width: 0.1vw;max-width: 40px;overflow: hidden;">
+												
+								<iIcon name="swap_vert" (handleClickEvent)="sort(indx)" size="1.5" itype="menu"></iIcon>
+														
+						</span-->
+				</td>
+				
+				<td width="25%"><span>Message</span></td>
+				<td width="25%"><span>Suggestive Action</span></td>
+
+			</tr>
+		</table>
+
+
+		<div  style="overflow: auto; height: 28vw;margin-bottom:1% ">  <!--border-bottom: 1px solid #ddd;-->
+			
+			
+			<div  style="text-align:center;height: 28vw;border-bottom: 1px solid #ddd; " *ngIf="(eodArray.length == 0)|| (eodArray == null)||(eodCheckArray == null) || (eodCheckArray.length == 0)">{{message}}</div>
+
+			<div   style=" height: 28vw;border-bottom: 1px solid #ddd; " *ngIf="(eodCheckArray != null) && (eodCheckArray.length > 0)" >
+				<ul class="notif-ul-list">
+					<li class="list-item" *ngFor="let item of eodCheckArray let i = index;">
+						<table>
+							<tr>
+								<td width="12%">
+									<div  class="notif-item" style="width: 98%;">{{item.m_Category_Group}}</div>
+								</td>
+								<td width="10%">
+									<div style="width: 98%;text-align: center;" [ngClass]="(item?.m_Ovr_Err=='O')?'warning-btn filter-btn':'error-btn filter-btn'">
+										<span style="color:white;"*ngIf="(item?.m_Ovr_Err=='O')" >OVERRIDE</span>
+										<span style="color:white;"*ngIf="(item?.m_Ovr_Err=='E')" >ERROR</span>
+									</div>
+								</td>
+								<td width="20%">
+									<div  class="notif-item" style="width: 98%;" >
+										<span *ngIf="(item.m_Report_Service != null) && (item.m_Report_Id != null)">
+											<a (click)="openReportWindow(i);" ><md-list-text>{{item.m_CategoryCode}}</md-list-text></a>
+										</span>
+										<span *ngIf="(item.m_Report_Service == null) || (item.m_Report_Id == null)">{{item.m_CategoryCode}}</span>
+									</div>
+								</td>
+								<td width="25%">
+									<div  class="notif-item">{{item.m_Message}}</div>
+								</td>
+								<td width="25%">
+									<div class="notif-item"  *ngIf='item.m_Action_Message != null'>
+										<span>{{((item.m_Action_Message).length>100) ? ((item.m_Action_Message).slice(0,90))+'...':item.m_Action_Message}} </span>&nbsp;&nbsp;
+										<span   *ngIf="((item.m_Action_Message).length > 100)">
+												<a (click)="openMaxPopup(i);"  ><md-list-text>More</md-list-text></a>
+											<!--span class="mesgShow" *ngIf="isMaxShow && (itemIndex == i)" (mouseout)="checkFlag()">{{popupMessage}}</span-->
+										</span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div style="display: inline-block; height: 3vw; width: 50%; "  *ngIf="isAuthRequired">
+		<table width="100%">
+			<tr>
+				<td width="25%"></td>
+				<td width="10%"></td>
+
+				<td width="30%"><iButton
+						compType='rectangle' btnType="button" id="Authorize EOD" [disabled]="!authFlag"
+						name="Authorize EOD" (ibtnEvent)="authorizeEodRecords()"></iButton></td>
+					
+				<!--td [ngStyle]="{'width':(!isAuthRequired && (eodCheckArray.length > 0))?'25%':'50%'}">
+				<div style="text-align: center;align:center;"><iButton
+						compType='rectangle' btnType="button" id="Authorize EOD"
+						name="Refresh" (ibtnEvent)="refreshEodRecord();"></iButton></div></td-->
+				<td width="10%"></td>
+				<td width="25%"></td>
+			</tr>
+		</table>
+	</div>
+
+</div>
+
+

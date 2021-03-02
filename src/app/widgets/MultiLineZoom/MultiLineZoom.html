@@ -1,0 +1,17 @@
+<div class="d3-chart" #chart>
+<ul *ngIf="requestType == 'Risk_Reporting'">
+<li>
+<a #keyRates style="color: #f1f1f1; padding-left: 2px; padding-right: 2px; border-radius: 2px;" (click)="loadData('keyRates')">Key Rates</a>
+&nbsp;&nbsp;
+<a #keySpreads style="color: #f1f1f1; padding-left: 2px; padding-right: 2px; border-radius: 2px;" (click)="loadData('keySpreads')">Key Spreads</a>
+&nbsp;&nbsp;
+<a #futuresRisk style="color: #f1f1f1; padding-left: 2px; padding-right: 2px; border-radius: 2px;" (click)="loadData('futuresRisk')">Futures Risk</a>
+</li>
+</ul>
+</div>
+<div class="progress" *ngIf="prgStatus==true">
+	<div class="circle">
+	<mat-progress-spinner [mode]="progressMode" id="circleLoading" class="layout"></mat-progress-spinner>
+	</div>
+</div>
+

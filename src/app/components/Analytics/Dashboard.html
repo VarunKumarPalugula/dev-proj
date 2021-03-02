@@ -1,0 +1,235 @@
+<center *ngIf="this.globalService.getDashboardFlag()=='true'">
+	<div class="analytics-container" id="analyticsDiv" #analyticsDiv style="width: 97vw; height:88vh; overflow: hidden;">
+								<div style="width: 100%; height: 100%; overflow: hidden; margin-top: -4px; margin-left: -2px; border-radius: 3px;">	
+								    <table border="0" width="100%" height="100%" style="border-collapse:separate;border-spacing:5px;">
+								    	<tr>
+								    		<td class="widget-container-block"  width="50%" colspan="1" style="height: 42vh; padding:3px;">
+												<iWidgetContainer widgetReqType="MM_Counterparty_Concentration" ititle="Counterparty Concentration" (maxWidgetEvent)="maximize('MMcc')" (helpWidgetEvent)="helpPage('pieChart')" (reloadWidgetEvent)="pie6.ngOnInit()" style="display: block;height: 100%;">													
+													<iPieChart #pie6 [width]="450" [height]="220" requestType="MM_Counterparty_Concentration"></iPieChart>	
+												</iWidgetContainer>	
+											</td>
+																			    	
+								    		<td class="widget-container-block"  width="50%" colspan="1" style="height: 42vh; padding:3px;">
+								    			<iWidgetContainer  #wid_brCurPos widgetReqType="Currency_Position"  [ititle]="brCurPos.ititle" [brdcrmb]="brCurPos.brdArr" (maxWidgetEvent)="maximize('Currency_Position')" (helpWidgetEvent)="helpPage('stackedBar')" (reloadWidgetEvent)="brCurPos.loadStackedBar(true)" (backWidgetEvent)="brCurPos.prevDrilldown($event.value)"
+												(downloadImageEvent)="brCurPos.downloadImage(true);" isStackedBar=true style="display: block;height: 100%;">	
+												<iStackedBars #brCurPos requestType="Currency_Position" [width]="550" [height]="225"></iStackedBars>
+												</iWidgetContainer>	
+								    		</td>
+								    		
+								    	</tr>
+								    	
+								    	<tr>
+	
+
+								    		<td class="widget-container-block"  width="50%" colspan="1" style="height: 42vh; padding:3px;">
+								    			<!--iWidgetContainer widgetReqType="Historical_Bond_Prices" ititle="{{'Historical_Bond_Prices'|translate}}" (maxWidgetEvent)="maximize('pieChart')" (helpWidgetEvent)="helpPage('MultiLine')" (reloadWidgetEvent)="hbp.ngOnInit()" style="display: block;height: 100%;">													
+													<div style="margin-right: 3px;">
+														<iMultiLineZoom #hbp requestType="Historical_Bond_Prices" [width]="450" [height]="220" xAxisUnit="Days" yAxisUnit="USD"></iMultiLineZoom>																						
+													</div>
+												</iWidgetContainer-->
+												<iWidgetContainer widgetReqType="CURRENCY_COMPOSITION" ititle="{{'CURRENCY_COMPOSITION'|translate}}" (maxWidgetEvent)="maximize('HorzStackedBar')" (helpWidgetEvent)="helpPage('HorzStackedBar')" (reloadWidgetEvent)="pfCurPos.ngOnInit()">													
+													<div style="margin-right: 3px;">
+														<iHorzStackedBar #pfCurPos requestType="CURRENCY_COMPOSITION" [width]="550" [height]="220"></iHorzStackedBar>																						
+													</div>
+												</iWidgetContainer>
+								    		</td>
+											<td class="widget-container-block" width="50%" colspan="1" style="height: 42vh; padding:3px;">								    			
+								    			<iWidgetContainer widgetReqType="MM_Deal_Status" ititle="Interface Deal Status" (maxWidgetEvent)="maximize('MMds')" (helpWidgetEvent)="helpPage('pieChart')" (reloadWidgetEvent)="pie5.ngOnInit()" style="display: block;height: 100%;">													
+													<iPieChart #pie5 [width]="450" [height]="220" requestType="MM_Deal_Status"></iPieChart>	
+												</iWidgetContainer>		
+								    		</td>
+								    	</tr>								    	
+								    </table>																	
+								</div>	
+	</div>
+	<div *ngIf="isSunburst==true">
+		<iMaximize title="{{'Forex_Reserves'|translate}}" popUpType="submit" popUpWidth="100" popUpHeight="100"
+			[(modalFlag)]="modalFlag" (popupclick)="close()" headerReq="true">
+		<div style="height: 81vh;background: radial-gradient(ellipse at center, #2e7294 97%, #1b4a63 100%);" id="maxChart">
+			<iWidgetContainer widgetReqType="Forex_Reserves" ititle="{{'Forex_Reserves'|translate}}" MaxMinFlag="true" (minWidgetEvent)="minimize(event)" (helpWidgetEvent)="helpPage('sunburst')" (reloadWidgetEvent)="frm_m.ngOnInit()" style="display: block;height: 100%;">
+				<div style="margin-top: 10px;">
+					<iSunburst #frm_m requestType="Forex_Reserves" maxScreen="true"
+				[width]="1000" [height]="530"> </iSunburst>
+				</div>
+			</iWidgetContainer>
+		</div>
+		</iMaximize>
+	</div>
+	<div *ngIf="isFX_Dealerwise_MTM==true">
+		<iMaximize title="{{'FX_Dealerwise_MTM'|translate}}" popUpType="submit" popUpWidth="100" popUpHeight="100"
+			[(modalFlag)]="modalFlag" (popupclick)="close()">
+		<div style="height: 90vh;vertical-align: top;background: radial-gradient(ellipse at center, #2e7294 97%, #1b4a63 100%);" id="maxChart">
+			<iWidgetContainer  widgetReqType="FX_Dealerwise_MTM" MaxMinFlag="true" (minWidgetEvent)="minimize(event)" (helpWidgetEvent)="helpPage('stackedBar')" (reloadWidgetEvent)="fxDlrMTM.loadStackedBar(true)" [brdcrmb]="fxDealerMTM.brdArr!=''?fxDealerMTM.brdArr:fxDlrMTM.brdArr" (backWidgetEvent)="fxDlrMTM.prevDrilldown($event.value);minimizeBrd($event.value)" (downloadImageEvent)="fxDlrMTM.downloadImage(true);"  isStackedBar=true>
+				<div style="margin-top: 10px;">
+				<iStackedBars #fxDlrMTM requestType="{{fxDealerMTM.requestType}}"  [width]="1000" [height]="520" [maxScreen]="true"></iStackedBars>
+				</div>
+			</iWidgetContainer>
+		</div>
+		</iMaximize>
+	</div>
+	<div *ngIf="isBrCurPosition==true">
+		<iMaximize title="{{'Currency_Position'|translate}}" popUpType="submit" popUpWidth="100" popUpHeight="100"
+			[(modalFlag)]="modalFlag" (popupclick)="close()">
+		<div style="height: 90vh;vertical-align: top;background: radial-gradient(ellipse at center, #2e7294 97%, #1b4a63 100%);" id="maxChart">
+			<iWidgetContainer  widgetReqType="Currency_Position" MaxMinFlag="true" (minWidgetEvent)="minimize(event)" (helpWidgetEvent)="helpPage('stackedBar')" (reloadWidgetEvent)="brCurrPos.loadStackedBar(true)" [brdcrmb]="brCurPos.brdArr!=''?brCurPos.brdArr:brCurrPos.brdArr" (backWidgetEvent)="brCurrPos.prevDrilldown($event.value);minimizeBrd($event.value)" (downloadImageEvent)="brCurrPos.downloadImage(true);"  isStackedBar=true>
+				<div style="margin-top: 10px;">
+				<iStackedBars #brCurrPos requestType="{{brCurPos.requestType}}"  [width]="1000" [height]="520" [maxScreen]="true"></iStackedBars>
+				</div>
+			</iWidgetContainer>
+		</div>
+		</iMaximize>
+	</div>
+
+	<div *ngIf="isPFCurrPosition==true">
+<iMaximize title="{{'CURRENCY_COMPOSITION'|translate}}" popUpType="submit" popUpWidth="100" popUpHeight="100"
+			[(modalFlag)]="modalFlag" (popupclick)="close()" headerReq="true">
+		<div style="height: 90vh;background: radial-gradient(ellipse at center, #2e7294 97%, #1b4a63 100%);">
+			<iWidgetContainer widgetReqType="CURRENCY_COMPOSITION" ititle="{{'CURRENCY_COMPOSITION'|translate}}" MaxMinFlag="true" (minWidgetEvent)="minimize(event)" (helpWidgetEvent)="helpPage('HorzStackedBar')" (reloadWidgetEvent)="hbp_m.ngOnInit()">
+				<div style="margin-top: 10px;">
+					
+					<iHorzStackedBar #pfCurPos requestType="CURRENCY_COMPOSITION" [width]="1000" [height]="530" maxScreen="true"></iHorzStackedBar>								
+				</div>
+			</iWidgetContainer>
+		</div>
+		</iMaximize>	
+	</div>
+
+	<div *ngIf="isAssetPosition==true">
+		<iMaximize title="{{'Historical_Bond_Prices'|translate}}" popUpType="submit" popUpWidth="100" popUpHeight="100"
+			[(modalFlag)]="modalFlag" (popupclick)="close()" headerReq="true">
+		<div style="height: 81vh;background: radial-gradient(ellipse at center, #2e7294 97%, #1b4a63 100%);" id="maxChart">
+			<iWidgetContainer widgetReqType="Historical_Bond_Prices" ititle="{{'Historical_Bond_Prices'|translate}}" MaxMinFlag="true" (minWidgetEvent)="minimize(event)" (helpWidgetEvent)="helpPage('MultiLine')" (reloadWidgetEvent)="hbp_m.ngOnInit()" style="display: block;height: 100%;">
+				<div style="margin-top: 10px;">
+					<iMultiLineZoom #hbp_m requestType="Historical_Bond_Prices" [width]="1000" [height]="530" xAxisUnit="Days" yAxisUnit="USD" maxScreen="true"></iMultiLineZoom>
+				</div>
+			</iWidgetContainer>
+		</div>
+		</iMaximize>	
+	</div>
+
+	<div *ngIf="isMMds==true">
+		<iMaximize title="{{'Deal_Status'|translate}}" popUpType="submit" popUpWidth="100" popUpHeight="100"
+			[(modalFlag)]="modalFlag" (popupclick)="close()" headerReq="true">
+		<div style="height: 81vh;background: radial-gradient(ellipse at center, #2e7294 97%, #1b4a63 100%);" id="maxChart">
+			<iWidgetContainer widgetReqType="MM_Deal_Status" ititle="{{'Deal_Status'|translate}}" MaxMinFlag="true" (minWidgetEvent)="minimize(event)" (helpWidgetEvent)="helpPage('pieChart')" (reloadWidgetEvent)="pie5_m.ngOnInit()" style="display: block;height: 100%;">													
+				<div style="margin-top: 15px;">
+					<iPieChart #pie5_m [width]="1000" [height]="530" requestType="MM_Deal_Status" maxScreen="true"></iPieChart>	
+				</div>
+			</iWidgetContainer>
+		</div>
+		</iMaximize>	
+	</div>
+	
+	<div *ngIf="isMMcc==true">
+		<iMaximize title="{{'Counterparty_Concentration'|translate}}" popUpType="submit" popUpWidth="100" popUpHeight="100"
+			[(modalFlag)]="modalFlag" (popupclick)="close()" headerReq="true">
+		<div style="height: 81vh;background: radial-gradient(ellipse at center, #2e7294 97%, #1b4a63 100%);" id="maxChart">
+			<iWidgetContainer widgetReqType="MM_Counterparty_Concentration"  ititle="{{'Counterparty_Concentration'|translate}}" MaxMinFlag="true" (minWidgetEvent)="minimize(event)" (helpWidgetEvent)="helpPage('pieChart')" (reloadWidgetEvent)="pie6_m.ngOnInit()" style="display: block;height: 100%;">													
+				<div style="margin-top: 15px;">
+					<iPieChart #pie6_m [width]="1000" [height]="530" requestType="MM_Counterparty_Concentration" maxScreen="true"></iPieChart>	
+				</div>
+			</iWidgetContainer>
+		</div>
+		</iMaximize>	
+	</div>
+		
+	<div (mouseover)="addListeners()" *ngIf="helpShow==true"> 
+     <div #helpinfo id="helpinfo" class="open" data-z-index="3" style="position: absolute; margin-top: -30%; margin-left: 35%; z-index:1;">       
+       <iIcon name="close" itype="menu" classType="material-icons close" placeholder="" (handleClickEvent)="helpClose(false)"></iIcon>        
+      <div *ngIf="actionValue=='sunburst'" style="margin-left:2.5vh;margin-top:-3vh;">          
+            <h2 style="font-size:1.5rem;">{{"Sunburst" | translate}}</h2>
+         
+            <div style="margin-top:-3%;">      
+                <h3 style="font-size:1.2rem;margin-bottom:-4%;">{{"Sunburst_use" | translate}}<!-- How to use --></h3>
+                <ul>             	
+                   <li>{{"Sunburst_help_li1" | translate}}</li>
+                   <li>{{"Sunburst_help_li2" | translate}}</li>
+                   <li>{{"Sunburst_help_li3" | translate}}</li> 
+                </ul>
+            </div>
+            <!-- © 2017 -->
+        </div>
+        
+         <div *ngIf="actionValue=='surface3D'" style="margin-left:2.5vh;margin-top:-3vh;">          
+            <h2 style="font-size:1.5rem;">{{"Surface3D" | translate}}</h2>
+         
+            <div style="margin-top:-3%;">      
+                <h3 style="font-size:1.2rem;margin-bottom:-4%;">{{"Surface3D_use" | translate}}<!-- How to use --></h3>
+                <ul>             	
+                    <li>{{"Surface3D_help_li1" | translate}}</li>
+                    <li>{{"Surface3D_help_li2" | translate}}</li>
+                    <li>{{"Surface3D_help_li3" | translate}}</li>         
+                    <li>{{"Surface3D_help_li4" | translate}}</li>           
+                    <li>{{"Surface3D_help_li5" | translate}}</li>          
+                </ul>
+            </div>
+        </div>
+        
+        <div *ngIf="actionValue=='stackedBar'" style="margin-left:2.5vh;margin-top:-3vh;">          
+            <h2 style="font-size:1.5rem;">{{"GroupedBars" | translate}}</h2>
+         
+            <div style="margin-top:-3%;">      
+                <h3 style="font-size:1.2rem;margin-bottom:-4%;">{{"GroupedBars_use" | translate}}<!-- How to use --></h3>
+                <ul>             	
+                    <li>{{"GroupedBars_help_li1" | translate}}</li>
+                    <li>{{"GroupedBars_help_li2" | translate}}</li>         
+                </ul>
+            </div>
+        </div>
+        
+         <div *ngIf="actionValue=='radial'" style="margin-left:2.5vh;margin-top:-3vh;">          
+            <h2 style="font-size:1.5rem;">{{"RadialProgress" | translate}}</h2>
+         
+            <div style="margin-top:-3%;">      
+                <h3 style="font-size:1.2rem;margin-bottom:-4%;">{{"RadialProgress_use" | translate}}<!-- How to use --></h3>
+                <ul>             	
+                    <li>{{"RadialProgress_help_li1" | translate}}</li>          
+                </ul>
+            </div>
+        </div>
+        
+          <div *ngIf="actionValue=='MultiLine'" style="margin-left:2.5vh;margin-top:-3vh;">          
+            <h2 style="font-size:1.5rem;">{{"ZoomableMultiLine" | translate}}</h2>
+         
+            <div style="margin-top:-3%;">      
+                <h3 style="font-size:1.2rem;margin-bottom:-4%;">{{"ZoomableMultiLine_use" | translate}}<!-- How to use --></h3>
+                <ul>             	
+                    <li>{{"ZoomableMultiLine_help_li1" | translate}}</li>
+                    <li>{{"ZoomableMultiLine_help_li2" | translate}}</li>           
+                </ul>
+            </div>
+        </div>
+        
+         <div *ngIf="actionValue=='compliance'" style="margin-left:2.5vh;margin-top:-3vh;">          
+            <h2 style="font-size:1.5rem;">{{"HeatMap" | translate}}</h2>
+         
+            <div style="margin-top:-3%;">      
+                <h3 style="font-size:1.2rem;margin-bottom:-4%;">{{"HeatMap_use" | translate}}<!-- How to use --></h3>
+                <ul>             	
+                    <li>{{"HeatMap_help_li1" | translate}}</li>
+                    <li>{{"HeatMap_help_li2" | translate}}</li>
+                    <li>{{"HeatMap_help_li3" | translate}}</li> 
+                </ul>
+            </div>
+        </div>
+        
+         <div *ngIf="actionValue=='pieChart'" style="margin-left:2.5vh;margin-top:-3vh;">          
+            <h2 style="font-size:1.5rem;">{{"PieChart" | translate}}</h2>
+         
+            <div style="margin-top:-3%;">      
+                <h3 style="font-size:1.2rem;margin-bottom:-4%;">{{"PieChart_use" | translate}}<!-- How to use --></h3>
+                <ul>             	
+                   <li>{{"PieChart_help_li1" | translate}}</li>
+                   <li>{{"PieChart_help_li2" | translate}}</li>        
+                </ul>
+            </div>
+        </div>
+        	
+      </div>
+      
+  </div>		
+</center>
+<center *ngIf="this.globalService.getDashboardFlag()=='false'">
+<br/><br/><br/>
+<h1>Welcome to Capital Cube</h1>
+</center>

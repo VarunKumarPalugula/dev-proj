@@ -1,0 +1,26 @@
+[
+    
+    { "make" : "Toyota", "model": "Celica", "price": 35000, "Date": "22-02-2021"},
+    { "make": "Ford", "model": "Mondeo", "price": 32000, "Date": "02-04-2021" },
+    { "make": "Porsche", "model": "Boxter", "price": 72000, "Date": "06-04-2021" },
+    { "make" : "Toyota", "model": "Celica", "price": 35000, "Date": "07-04-2021" },
+    { "make": "Ford", "model": "Mondeo", "price": 32000, "Date": "22-02-2021" },
+    { "make": "Porsche", "model": "Boxter", "price": 72000, "Date": "22-02-2021" },
+    { "make" : "Toyota", "model": "Celica", "price": 35000,"Date": "22-02-2021" },
+    { "make": "Ford", "model": "Mondeo", "price": 32000, "Date": "22-02-2021" },
+    { "make": "Porsche", "model": "Boxter", "price": 72000, "Date": "22-02-2021" },
+    { "make" : "Toyota", "model": "Celica", "price": 35000, "Date": "22-02-2021" },
+    { "make": "Ford", "model": "Mondeo", "price": 32000, "Date": "22-02-2021" },
+    { "make": "Porsche", "model": "Boxter", "price": 72000, "Date": "22-02-2021" },
+    { "make" : "Toyota", "model": "Celica", "price": 35000, "Date": "22-02-2021" },
+    { "make": "Ford", "model": "Mondeo", "price": 32000, "Date": "22-02-2021" },
+    { "make": "Porsche", "model": "Boxter", "price": 72000, "Date": "22-02-2021" },
+    { "make" : "Toyota", "model": "Celica", "price": 35000, "Date": "22-02-2021" },
+    { "make": "Ford", "model": "Mondeo", "price": 32000, "Date": "22-02-2021" },
+    { "make": "Porsche", "model": "Boxter", "price": 72000, "Date": "22-02-2021" },
+    { "make" : "Toyota", "model": "Celica", "price": 35000, "Date": "22-02-2021" },
+    { "make": "Ford", "model": "Mondeo", "price": 32000, "Date": "22-02-2021" },
+    { "make": "Porsche", "model": "Boxter", "price": 72000, "Date": "22-02-2021" }
+   
+   
+]

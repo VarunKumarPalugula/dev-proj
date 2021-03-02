@@ -1,0 +1,717 @@
+/* ********** blue grey theme *********** */
+.bluegreytheme .theader{	
+	background: #607D8B;
+	color: white !important;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+
+.bluegreytheme .theader .ul{
+	background: #607D8B;
+	color: white !important;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+
+.bluegreytheme .tcontent{
+	color: #212121;
+}
+
+.bluegreytheme .ticon{
+	color: aliceblue;
+}
+
+.bluegreytheme .tcompicon{
+	color: #212121;
+}
+
+.bluegreytheme .tcompicon .disableIcon{
+	color: darkgray;
+}
+
+.bluegreytheme .tmenuicon{
+	color: white;
+}
+
+.bluegreytheme .tmenuicon .disableIcon{
+	color: white;
+}
+
+.bluegreytheme .terroricon{
+	color: red;
+}
+
+.bluegreytheme .tmainbody{
+	background: #607D8B;
+	/*color: white;*/
+}
+
+.bluegreytheme .tleftNav{
+	background: #607D8B;
+	color: white !important;
+}
+
+.bluegreytheme .gadget-menu {
+	cursor: pointer;
+	background-color: #607D8B;
+	border-top: 1px solid #585858;
+	text-align: center;
+	width: 3vw;
+	height: 3vw;
+	z-index: 0;
+}
+
+.bluegreytheme .gadget-container .gadget-title {
+	display: block;
+	background-color: #607D8B;
+	color: white;
+	display: block;
+	font-size: 1.2vw;
+	margin-right: 1vw;
+	height: 100%;
+	width: 100%;
+	line-height: 3vw;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
+
+.bluegreytheme .gadget-container-right .gadget-title {
+	display: block;
+	background-color: #607D8B;
+	color: white;	
+	font-size: 1.2vw;
+	height: 100%;
+	width: 100%;
+	line-height: 3vw;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
+
+.bluegreytheme .jqx-notification {
+    background-color: #607D8B !important;
+    border-left-color: #ffffff !important;
+    border-right-color: #ffffff !important;
+    border-top-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}
+
+.bluegreytheme .closeRight > *{
+    color: #607D8B;
+    right: 0;
+    position: absolute;
+    top: 0px;
+}
+
+.bluegreytheme .closeLeft > *{
+    color: #607D8B;
+    left: 0;
+    position: absolute;
+    top: 0px;
+}
+
+.bluegreytheme .tmainmenu{
+	background: lightgray;
+	color: #212121 !important;
+}
+
+.bluegreytheme .tmenu2{
+	color: floralwhite;
+	font-weight: bold;
+}
+
+.bluegreytheme .tmenu3{
+    font-size: 0.8vw !important;
+    color: #212121;
+    font-weight: normal;
+    background: lightgray;
+}
+
+.bluegreytheme .tpaneltitle{	
+	background: #607D8B;
+	color: white !important;
+	font-size: 14px;
+}
+
+.bluegreytheme .ttabactive{	
+	background: #607D8B;
+	color: white !important;
+	font-size: 14px;
+}
+
+.bluegreytheme .ttabhover{	
+	background: red;
+	color: white !important;
+	font-size: 14px;
+}
+
+.bluegreytheme .ttabinactive{	
+	background: transparent;
+	color: white !important;
+	font-size: 14px;
+}
+
+
+.bluegreytheme  .jqx-tabs-header {
+    border-color: white !important;
+    background: #17272B !important;
+    color: white !important;
+}
+
+.bluegreytheme  .jqx-tabs-title-selected-top {
+    color: black !important;
+}
+
+.bluegreytheme  .jqx-scrollbar-state-normal >.jqx-fill-state-normal {
+    background: #607D8B !important;
+	border-radius: 10px;
+    height: 7px !important;
+	top: 2.5px !important;
+}
+
+.bluegreytheme ::-webkit-scrollbar-track {
+	background: lightgray;
+}
+
+.bluegreytheme .jqx-scrollbar-thumb-state-normal-horizontal-black {
+    background: #555 !important;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#717171),to(#494949)) !important;
+}
+
+.bluegreytheme .jqx-scrollbar-thumb-state-normal-black {
+    background: #555 !important;
+    background-image: -webkit-gradient(linear,left top,right top,from(#717171),to(#494949)) !important;
+    background-image: -moz-linear-gradient(left,#717171,#494949) !important;
+    background-image: -o-linear-gradient(left,#717171,#494949) !important;
+}
+
+my-app>.bluegreytheme>*>div *::-webkit-scrollbar-thumb {
+	background: #607D8B;
+}
+/* ********** cyan amber theme *********** */
+.cyanambertheme .theader{	
+	background: #00bcd4;
+	color: white;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+.cyanambertheme .theader .ul{
+	background: #607D8B;
+	color: white !important;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+.cyanambertheme  .tcontent{
+	color: #212121;
+}
+.cyanambertheme .ticon{
+	color: aliceblue;
+}
+
+.cyanambertheme .tcompicon{
+	color: #212121;
+}
+.cyanambertheme .tcompicon .disableIcon{
+	color: darkgray;
+}
+.cyanambertheme .tmenuicon{
+	color: white;
+}
+.cyanambertheme .tmenuicon .disableIcon{
+	color: white;
+}
+.cyanambertheme .terroricon{
+	color: red;
+}
+
+.cyanambertheme .tmainbody{
+	background: #00bcd4;
+	/*color: white;*/
+}
+
+.cyanambertheme .tleftNav{
+	background: #00bcd4;
+	color: white !important;
+}
+
+
+.cyanambertheme .gadget-menu {
+	cursor: pointer;
+	background-color: #00bcd4;
+	border-top: 1px solid #585858;
+	text-align: center;
+	width: 3vw;
+	height: 3vw;
+	z-index: 0;
+}
+
+.cyanambertheme .gadget-container .gadget-title {
+	display: block;
+	background-color: #00bcd4;
+	color: white;	
+	font-size: 1.2vw;
+	height: 100%;
+	width: 100%;
+	line-height: 3vw;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
+
+.cyanambertheme .gadget-container-right .gadget-title {
+	display: block;
+	background-color: #00bcd4;
+	color: white;
+	font-size: 1.2vw;
+	height: 100%;
+	width: 100%;
+	line-height: 3vw;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
+
+.cyanambertheme .jqx-notification {
+    background-color: #00bcd4 !important;
+    border-left-color: #ffffff !important;
+    border-right-color: #ffffff !important;
+    border-top-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}
+
+.cyanambertheme .closeRight  > *{
+    color: #00bcd4;
+    right: 0;
+    position: absolute;
+    top: 0px;
+}
+
+.cyanambertheme .closeLeft  > *{
+    color: #00bcd4;
+    left: 0;
+    position: absolute;
+    top: 0px;
+}
+.cyanambertheme .tmainmenu{
+	background: lightgray;
+	color: #212121 !important;
+}
+
+.cyanambertheme .tmenu2{
+	color: floralwhite;
+	font-weight: bold;
+}
+
+.cyanambertheme .tmenu3{
+    font-size: 0.8vw !important;
+    color: #212121;
+    font-weight: normal;
+    background: lightgray;
+}
+
+.cyanambertheme .tpaneltitle{	
+	background: #00bcd4;
+	color: white !important;
+	font-size: 14px;
+}
+
+.cyanambertheme  .jqx-tabs-header , .cyanambertheme  .jqx-tabs-title-container {
+    border-color: white !important;
+    background: #00bcd4  !important;
+    color: white !important;
+}
+
+.cyanambertheme  .jqx-tabs-title-selected-top {
+    color: black !important;
+}
+
+.cyanambertheme  .jqx-scrollbar-state-normal >.jqx-fill-state-normal {
+    background: #00bcd4 !important;
+	border-radius: 10px;
+    height: 7px !important;
+	top: 2.5px !important;
+}
+
+.cyanambertheme ::-webkit-scrollbar-track {
+	background: lightgray;
+}
+
+.cyanambertheme .jqx-scrollbar-thumb-state-normal-horizontal-black {
+    background: #555 !important;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#717171),to(#494949)) !important;
+}
+
+.cyanambertheme .jqx-scrollbar-thumb-state-normal-black {
+    background: #555 !important;
+    background-image: -webkit-gradient(linear,left top,right top,from(#717171),to(#494949)) !important;
+    background-image: -moz-linear-gradient(left,#717171,#494949) !important;
+    background-image: -o-linear-gradient(left,#717171,#494949) !important;
+}
+
+my-app>.cyanambertheme>*>div *::-webkit-scrollbar-thumb {
+	background: #00bcd4;
+}
+/* ********** teal lime theme *********** */
+.teallimetheme .theader{	
+	background: #009688;
+	color: white;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+
+.teallimetheme .theader .ul{
+	background: #607D8B;
+	color: white !important;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+.teallimetheme .tcontent{
+	color: #212121;
+}
+.teallimetheme .ticon{
+	color: aliceblue;
+}
+
+.teallimetheme .tcompicon{
+	color: #212121;
+}
+.teallimetheme .tcompicon .disableIcon{
+	color: darkgray;
+}
+.teallimetheme .tmenuicon{
+	color: white;
+}
+.teallimetheme .tmenuicon .disableIcon{
+	color: white;
+}
+.teallimetheme .terroricon{
+	color: red;
+}
+
+.teallimetheme .tmainbody{
+	background: #009688;
+	/*color: white;*/
+}
+
+.teallimetheme .tleftNav{
+	background: #009688;
+	color: white !important;
+}
+
+.teallimetheme .gadget-menu {
+	cursor: pointer;
+	background-color: #009688;
+	border-top: 1px solid #585858;
+	text-align: center;
+	width: 3vw;
+	height: 3vw;
+	z-index: 0;
+}
+
+
+.teallimetheme .gadget-container .gadget-title {
+	display: block;
+	background-color: #009688;
+	color: white;
+	display: block;
+	font-size: 1.2vw;
+	margin-right: 1vw;
+	height: 100%;
+	width: 100%;
+	line-height: 3vw;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
+
+.teallimetheme .gadget-container-right .gadget-title {
+	display: block;
+	background-color: #009688;
+	color: white;
+	font-size: 1.2vw;
+	height: 100%;
+	width: 100%;
+	line-height: 3vw;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
+
+.teallimetheme .jqx-notification {
+    background-color: #009688 !important;
+    border-left-color: #ffffff !important;
+    border-right-color: #ffffff !important;
+    border-top-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}
+.teallimetheme .closeRight > *{
+    color: #009688;
+    right: 0;
+    position: absolute;
+    top: 0px;
+}
+
+.teallimetheme .closeLeft > *{
+    color: #009688;
+    left: 0;
+    position: absolute;
+    top: 0px;
+}
+
+.teallimetheme .tmainmenu{
+	background: lightgray;
+	color: #212121 !important;
+}
+
+.teallimetheme .tmenu2{
+	color: floralwhite;
+	font-weight: bold;
+}
+
+.teallimetheme .tmenu3{
+    font-size: 0.8vw !important;
+    color: #212121;
+    font-weight: normal;
+    background: lightgray;
+}
+
+.teallimetheme .tpaneltitle{	
+	background: #009688;
+	color: white !important;
+	font-size: 14px;
+}
+
+.teallimetheme  .jqx-tabs-header {
+    border-color: white !important;
+    background: #17272B !important;
+    color: white !important;
+}
+
+.teallimetheme  .jqx-tabs-title-selected-top {
+    color: black !important;
+}
+
+.teallimetheme  .jqx-scrollbar-state-normal >.jqx-fill-state-normal {
+    background: #009688 !important;
+	border-radius: 10px;
+    height: 7px !important;
+	top: 2.5px !important;
+}
+
+.teallimetheme ::-webkit-scrollbar-track {
+	background: lightgray;
+}
+
+.teallimetheme .jqx-scrollbar-thumb-state-normal-horizontal-black {
+    background: #555 !important;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#717171),to(#494949)) !important;
+}
+
+.teallimetheme .jqx-scrollbar-thumb-state-normal-black {
+    background: #555 !important;
+    background-image: -webkit-gradient(linear,left top,right top,from(#717171),to(#494949)) !important;
+    background-image: -moz-linear-gradient(left,#717171,#494949) !important;
+    background-image: -o-linear-gradient(left,#717171,#494949) !important;
+}
+
+my-app>.teallimetheme>*>div *::-webkit-scrollbar-thumb {
+	background: #009688;
+}
+/* ********** dark grey theme *********** */
+.darkgraytheme .theader{	
+	background: #17272B;
+	color: white;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+
+.darkgraytheme .theader .ul{
+	background: #607D8B;
+	color: white !important;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+.darkgraytheme .tcontent{
+	color: #212121;
+}
+.darkgraytheme .ticon{
+	color: lightgray;
+}
+
+.darkgraytheme .tcompicon{
+	color: #212121;
+}
+.darkgraytheme .tcompicon .disableIcon{
+	color: darkgray;
+}
+.darkgraytheme .tmenuicon{
+	color: white;
+}
+.darkgraytheme .tmenuicon .disableIcon{
+	color: white;
+}
+.darkgraytheme .terroricon{
+	color: red;
+}
+
+.darkgraytheme .tmainbody{
+	background: #17272B;
+	/*color: white;*/
+}
+
+.darkgraytheme .tleftNav{
+	background: #f5f5f5;
+	color: white !important;
+}
+
+.darkgraytheme .gadget-menu {
+	cursor: pointer;
+	background-color: #17272B;
+	border-top: 1px solid #585858;
+	text-align: center;
+	width: 3vw;
+	height: 3vw;
+	z-index: 0;
+}
+
+.darkgraytheme .gadget-container .gadget-title {
+	display: block;
+	background-color: #17272B;
+	color: white;
+	display: block;
+	font-size: 1.2vw;
+	margin-right: 1vw;
+	height: 100%;
+	width: 100%;
+	line-height: 3vw;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
+
+
+.darkgraytheme .gadget-container-right .gadget-title {
+	display: block;
+	background-color: #17272B;
+	color: white;
+	font-size: 1.2vw;
+	height: 100%;
+	width: 100%;
+	line-height: 3vw;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
+
+.darkgraytheme .jqx-notification-info, .jqx-info {
+    background-color: #17272B !important;
+    border-left-color: #ffffff !important;
+    border-right-color: #ffffff !important;
+    border-top-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}
+
+.darkgraytheme .tmainmenu{
+	background: lightgray;
+	color: #212121 !important;
+}
+
+.darkgraytheme .tmenu2{
+	color: floralwhite;
+	font-weight: bold;
+}
+
+.darkgraytheme .tmenu3{
+    font-size: 0.8vw !important;
+    color: #212121;
+    font-weight: normal;
+    background: lightgray;
+}
+
+.darkgraytheme .tpaneltitle{	
+	background: #17272B;
+	color: white !important;
+	font-size: 14px;
+}
+
+.darkgraytheme .ttabactive{	
+	background: #607D8B;
+	color: white !important;
+	font-size: 14px;
+}
+
+.darkgraytheme .ttabhover{	
+	background: red;
+	color: white !important;
+	font-size: 14px;
+}
+
+.darkgraytheme .ttabinactive{	
+	background: transparent;
+	color: white !important;
+	font-size: 14px;
+}
+
+
+.darkgraytheme  .jqx-tabs-header {
+    border-color: white !important;
+    background: #17272B !important;
+    color: white !important;
+}
+
+.darkgraytheme  .jqx-tabs-title-selected-top {
+    color: black !important;
+}
+
+
+.darkgraytheme  .jqx-scrollbar-thumb-state-normal{
+    background: #17272B !important;
+	border-radius: 10px;
+	width: 7px !important;
+	left: 4px !important;
+}
+
+.darkgraytheme  .jqx-scrollbar-thumb-state-normal-horizontal {
+    background: #17272B !important;
+	border-radius: 10px;
+    height: 7px !important;
+	top: 2.5px !important;
+}
+
+.darkgraytheme ::-webkit-scrollbar-track {
+	background: lightgray;
+}
+
+my-app>.darkgraytheme>*>div *::-webkit-scrollbar-thumb {
+	background: #17272B;
+}
+
+
+.darkgraytheme .jqx-scrollbar-thumb-state-normal-horizontal-black {
+    background: #555 !important;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#717171),to(#494949)) !important;
+}
+
+.darkgraytheme .jqx-scrollbar-thumb-state-normal-black {
+    background: #555 !important;
+    background-image: -webkit-gradient(linear,left top,right top,from(#717171),to(#494949)) !important;
+    background-image: -moz-linear-gradient(left,#717171,#494949) !important;
+    background-image: -o-linear-gradient(left,#717171,#494949) !important;
+}

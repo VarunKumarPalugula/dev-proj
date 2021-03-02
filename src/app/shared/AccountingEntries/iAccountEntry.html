@@ -1,0 +1,17 @@
+			
+		<div style="width:79.5vw;" id="accountingEntry">
+			<table width="79vw">
+				<tr>
+					<td><div style="width:10%;margin-left: 7px;"><iCheckbox #viewHistory id="viewHistory" name="Deal History" placeholder="Deal History"				(click)="getAccountingEntries()"></iCheckbox></div>
+					</td>
+					<td width="40px" align="right">
+							<iButton name="PDF" compType="miniCircle" btnType="button"
+								iconName="picture_as_pdf" (ibtnEvent)="generateAccountingEntriesPDF();" value="PDF"></iButton></td>
+					</tr>
+			</table>
+			<iGrid #ACGrid name="ACgrid" 
+					advSearchLabelType="" titleReq="false" [dataItemList]="accountList" [inputParams]="inputParams" 
+					gridWidth="79vw" gridHeight="40vh"></iGrid>
+		</div>
+		
+		

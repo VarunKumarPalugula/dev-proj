@@ -1,0 +1,389 @@
+ /** header start **/
+.darkgraytheme .theader{
+	background-color: #ffffff;
+    border: 1px solid rgba(220, 220, 220, 0.92);
+}
+.darkgraytheme .ticker-wrap {   
+	height: 20px !important;
+	background: #f5f5f5;
+	border: 1px solid rgba(220, 220, 220, 0.92);
+}
+
+.darkgraytheme .ticker-wrap>.ticker>.ticker__item {
+    color: #0c74b7 !important;
+}
+
+.darkgraytheme .ticon {
+    color: grey !important;
+}
+
+.darkgraytheme .settings_bg > * font {
+    color: black;
+}
+
+.darkgraytheme .settings_bg {
+    background: white !important;
+}
+
+.darkgraytheme .theader {    
+    color: black;  
+	font-weight: bold !important;
+}
+
+.darkgraytheme .searchLeft{   
+    width: 33% !important;    
+}
+
+.darkgraytheme .round{
+	border-radius: 5px !important;
+    border: 1px solid rgba(177, 172, 172, 0.92) !important;
+}
+
+.darkgraytheme #menu>.ticon {
+    color: #006db3 !important;
+}
+
+.darkgraytheme a.collection-item {
+    color: #006db3 !important;
+}
+
+.file-upload__label{
+	color: #fff !important;
+	background: #1670b3 !important;
+}
+
+iicon {
+    outline: none !important;
+}
+ /** header end **/
+
+/** leftNave start **/
+.darkgraytheme #analyticsDiv, .darkgraytheme .tmainbody, .darkgraytheme .ptitleLeft{
+	background: #ffffff !important;
+}
+.darkgraytheme .imdContent {
+    height: 87vh !important;
+	display: block;
+}
+#mymenu{
+	background-image: url('/images/NavigatorBG.gif');
+	background-size: 100% 100%;
+}
+.jqx-menu-dropdown{
+	width: 200px;
+}
+
+.jqx-menu-vertical {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/** leftNave end **/
+
+
+.darkgraytheme ileftsidenav>div {
+    margin-top: 0px !important;
+}
+
+
+/** consolebar start**/
+.darkgraytheme .consoleHighLight {
+    background-color: #FAFAFA !important;
+    color: #fff;
+}
+
+.darkgraytheme .auditInfo, .darkgraytheme .helpInfo, .darkgraytheme .console {
+    border: 1px solid #FAFAFA !important;
+    background-color: #EEEEEE !important;
+    border-radius: 0px !important;
+}
+
+
+
+.darkgraytheme .audit, .darkgraytheme .help{
+    background-color: inherit !important;
+    border-radius: inherit
+}
+
+.darkgraytheme .help{
+	    background-color: #dae9f3 !important;
+}
+
+.darkgraytheme .audit>*>.tcompicon, .darkgraytheme .console>.icon>* .tcompicon {
+    color:  #333333 !important;
+}
+
+.darkgraytheme .audit>*>label, .darkgraytheme .console>.icon>*>label {
+	color: #333333;;
+}
+
+.darkgraytheme .help>*>label{
+	color: #006db3;
+}
+
+.darkgraytheme .slideUp, .darkgraytheme .toggleAudit{
+    background: #DAE9F3 !important;
+	color: #333333;
+}
+
+.darkgraytheme .toggleHelp{
+	background: #ffffff !important;
+}
+
+/** consolebar end**/
+
+
+/**  dashBoard start  **/
+
+.darkgraytheme #analyticsDiv{
+    margin-top: 2.5vh;
+}
+
+
+/** help start**/
+.darkgraytheme #helpinfo {
+    background-color: #FAFAFA;
+    color: #333333 !important;
+    text-shadow: none;
+    font-weight: bold;
+	box-shadow: -2px -2px 2px #FAFAFA;
+}
+
+.darkgraytheme #helpinfo>div {
+    float: left;
+    margin-bottom: 1%;
+}
+
+.darkgraytheme #helpinfo > div > div {
+    box-shadow: inset 0px 0px 10px #333333;
+}
+
+.darkgraytheme #helpinfo>*>*>h3 {
+    font-weight: bold;
+}
+
+.darkgraytheme #helpinfo>*>.tmenuicon {
+    background: #333333;
+    border-radius: 13px;
+    float: right;
+    margin-top: 0.5rem;
+}
+
+.darkgraytheme li.menuItem.collection-item {
+    line-height: 0.15rem !important;
+}
+/**  help end **/
+
+
+.darkgraytheme .modal-header {
+	color: #FAFAFA!important;
+	margin: 0.5% 0.5% 0% 0.5% !important;
+}
+.darkgraytheme .modal-header-content-widget {
+    padding: 0.5% 0.6% 0.5% 0.5% !important;
+}
+
+.darkgraytheme .widget-container-block{
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgba(220, 220, 220, 0.92);
+    height: 39vh !important;
+	border-radius: 10px;
+}
+
+.darkgraytheme #maxChart {
+	background: rgb(255, 255, 255) !important;
+}
+.darkgraytheme .widget-td {
+	color: #333333 !important;
+    font-weight: bold;
+}
+
+.darkgraytheme .widget-icon>* .tmenuicon {
+    color: #006db3 !important;
+}
+
+.darkgraytheme .y text,.darkgraytheme  .x text,.darkgraytheme  .legend text {
+    fill: rgb(8, 8, 8) !important;
+    stroke: rgb(72, 71, 71) !important;  
+    font-size: 0.5rem !important;
+    font-size: 0.6rem !important;
+    font-family: 'OpenSans' !important;
+}
+
+.darkgraytheme path.domain,.tick line {
+    stroke: rgb(72, 71, 71) !important;
+}
+
+.darkgraytheme .widget-datetime{
+	color: #0c74b7 !important;
+}
+
+.darkgraytheme .collection>.menuItem>label, .darkgraytheme .changePassword label {
+    color: #0c74b7 !important;
+}
+
+.maximize-header{
+    height: 27px;
+    float: left;
+    text-align: left;
+    width: 91%;
+    position: absolute;
+    border-bottom: 1px solid rgba(220, 220, 220, 0.92);
+}
+
+.darkgraytheme .widget-icon md-icon.mat-icon {
+    width: 1.7vw !important;
+    height: 1.7vw !important;
+}
+
+/** dashboard end **/
+
+/** common component start ***/
+
+.darkgraytheme .modal-header, .darkgraytheme .tpaneltitle {
+    background-color: #EEEEEE;
+    color: black !important;
+}
+
+/**** panel changes ***/
+
+.darkgraytheme .routerLink ,.darkgraytheme .breadcrumbAlign, 
+.darkgraytheme .tmenuicon {
+    color: #333333 !important;
+	font-weight: bold !important;
+	font-family: 'OpenSans' !important;
+}
+
+.darkgraytheme .brdcrmb-div {
+    width: 100%;
+    color: inherit !important;
+    border-spacing: 0px;
+}
+
+.ptitleLeft {   
+    background: #F8F9FB !important; 
+}
+
+ /**** panel changes ***/
+
+input[type=date]:not(.jqx-input),select, select[required], select.required, input[required],  
+input.required, input[type=password], input[type=text]:not(.jqx-input), input[type=number]:not(.jqx-input) {
+	border-left: solid 1px #bbb1b1 !important;
+}
+
+textarea, textarea[required], textarea.required{
+	border-left: solid 1px #bbb1b1 !important;
+}
+
+label {
+    color: #333333 !important;  
+	font-size: 13px !important;
+	font-family: 'OpenSans' !important;
+    font-weight: bold !important;
+}
+
+.toolbar-container{
+    height: 3vw !important;
+    margin-bottom: 10px;
+}
+
+/******* button css **********/
+
+select::-ms-expand {
+    background-color: transparent;
+    border: 0px;
+    color: black;
+}
+
+.mat-mini-fab, .mat-mini-fab:not([disabled]):active, 
+.toolBarImgRectangle > .mat-raised-button:not([disabled]),.toolBarImgRectangle > .mat-raised-button:not([disabled]):active {
+    background-color: #eeeeee !important;
+}
+
+.mat-fab, .mat-mini-fab,[disabled].mat-fab, [disabled].mat-mini-fab, 
+.toolBarImgRectangle >.mat-raised-button,.toolBarImgRectangle > [disabled].mat-raised-button {
+    border-radius: 0% !important;
+    border: 0px !important;
+    box-shadow: none !important;
+}
+
+td > ilabel {
+    width: 100%;
+    display: block;
+    text-align: right;
+    padding-right: 1vw !important;
+}
+
+ilabel > label { 
+    width: 100%; 
+    display: block;
+}
+
+.toolbarIcon {    
+    margin-top: 2px;
+	padding: unset !important;
+}
+
+.componentBlock {   
+    margin-top: 0px !important;
+}
+
+/******* button css end **********/
+
+/** common component end ***/
+
+.divider-css {
+    width: 100%;
+    font-weight: bold;
+    font-size: 1vw;
+    text-align: left;
+	font-family: 'OpenSans' !important;
+}
+
+
+
+/*** Position Blotter ***/
+.blotterDiv{
+    background-color: #FFFFFF !important;
+}
+
+.aggHeaderCol, .wrapHeader-txtColor {
+    color: #5992dc;
+}
+
+.aggHeaderColVal {
+    color: #2045d4;
+}
+
+.wrapValue-txtColor {
+    color: #007cff;
+}
+
+.blotter-total-txtColor{
+	color: #5a2a4b;
+}
+
+/**** Position Blotter end ***/
+
+/*** tab start ****/
+
+#dolphinnav ul li{
+	border-radius: 15px 0px 0px 0px;
+}
+#dolphinnav ul li.active{
+	background: #DAE9F3 !important;
+}
+
+#dolphinnav ul li.active a span {
+    color: #007CBB !important;
+}
+
+#dolphinnav ul li {    
+    border: solid 2px #DAE9F3 !important;
+}
+
+.tab-hover {
+    background: #69bcf3 !important;
+    border: solid 1px #69bcf3 !important;
+}
+
+/*** tab end ***/

@@ -1,0 +1,14 @@
+.toolbarDiv {
+	/*float: left;*/
+	display: inline-block;
+	padding: 7px 1px 0px 0px;
+}
+
+/*.toolbarIcon {
+	color: #00ACC1;
+	font-size: 2vw;
+	padding: 3px 5px 3px 4px;
+	border-radius: 30px;
+	box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.55), 0 2px 10px 0
+		rgba(0, 0, 0, 0.28);
+}*/

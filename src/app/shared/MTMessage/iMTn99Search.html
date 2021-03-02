@@ -1,0 +1,97 @@
+<div style="width: 70vw;">
+	<form #f="ngForm">
+		<div *ngIf="isFormIsValid == false || noSearchData == true">
+			<iPopup title="MTn99 Status" popUpType="default"
+				(popupclick)="close()" popUpHeight="40" popUpWidth="60"
+				[(modalFlag)]="modalFlag">
+
+			<div style="width: 35vw; overflow: hidden;">
+				<div style="padding: 10px 0px 0px 0px">{{message}}</div>
+				<iPopup-Footer>
+				<div style="display: inline-block;">
+					<iButton compType='rectangle' btnType="button" id="Ok" name="Ok"
+						(ibtnEvent)="close()"></iButton>
+				</div>
+				</iPopup-Footer>
+			</div>
+			</iPopup>
+		</div>
+		<div style="height: 12vh;">
+			<table style="width: 95%; align: center;">
+				<tr>
+					<td width="100%">
+						<table align="center">
+
+							<tr>
+								<td width="8%"><ilabel for="messageType" txt="Message Type"
+										isLeftLabel="true"></ilabel></td>
+								<td width="12%"><iDropdown #msgType id="msgType"
+										labelReq="false" name="msgType"
+										requestType='SWIFTMSG_DETAIL_MAPPER'
+										contextUrl='{{this.baseUrl}}' placeholder="Message Type"
+										[(ngModel)]="v_msgType" required="true" objReq="false"
+										(change)="messageTypeChange($event)"></iDropdown></td>
+
+
+								<td width="6%"><ilabel for="status" txt="Status"
+										isLeftLabel="true"></ilabel></td>
+								<td width="10%"><iDropdown #status id="status"
+										labelReq="false" name="status" requestType=''
+										contextUrl='{{this.baseUrl}}' placeholder="Status"
+										[(ngModel)]="v_status" required="true" objReq="false"></iDropdown></td>
+
+
+								<td width="6%"><ilabel for="FromDate" txt="From Date"
+										isLeftLabel="true"></ilabel></td>
+								<td width="12%"><iCalendar #fromDate id="from_date"
+										labelReq="false" name="from_date" time="false"
+										requestType='Date' [calendarList]="calendarList"
+										placeholder="From Date" [(ngModel)]="v_from_date"
+										required="false" time="false"></iCalendar></td>
+
+
+								<td width="6%"><ilabel for="toDate" txt="To Date"
+										isLeftLabel="true"></ilabel></td>
+								<td width="12%"><iCalendar #toDate id="to_date"
+										labelReq="false" name="to_date" time="false" requestType='Date'
+										[calendarList]="calendarList" placeholder="To Date"
+										[(ngModel)]="v_to_date" required="false" time="false"></iCalendar></td>
+							</tr>
+
+							<tr>
+								<td colspan="6">&nbsp;</td>
+								<td colspan="2" align="right"><iButton compType='rectangle'
+										btnType="button" id="clear" name="Clear" (ibtnEvent)="clearData()"></iButton>&nbsp;
+									<iButton compType='rectangle' btnType="button" id="search"
+										name="Search" (ibtnEvent)="searchData(f.form)"></iButton></td>
+							</tr>
+
+
+							<br />
+						</table>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<!-- hidden parameters -->
+		<input id="module" type="hidden" value="" name="module"
+			ngModel="{{module}}" /> <input id="transType" type="hidden"
+			value="" name="transType" ngModel="N" />
+
+		<div *ngIf="isSearchData">
+			<hr>
+
+			<div
+				style="width: 70vw; height: 44vh; display: inline-block; position: relative;">
+				<iGrid titleReq="true" gridTitle="MTn99 Search"
+					[dataItemList]="choiceList" gridWidth="70vw" gridHeight="40vh"
+					[inputParams]="inputParams" rowType="dynSearch" headHeight="1vw"
+					rowHeight="1vw" advSearchLabelType="MTN99_SEARCH"
+					style="display:block;height:100%;"></iGrid>
+			</div>
+
+		</div>
+		
+	</form>
+</div>

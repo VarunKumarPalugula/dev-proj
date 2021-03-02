@@ -1,0 +1,32 @@
+td, th {
+	padding: 2px 1px;
+}
+
+.iconDisabled {
+	pointer-events: none;
+	background: #dddddd !important;
+	border: solid 1px #dddddd !important;
+	color: #000000 !important;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
+		rgba(0, 0, 0, 0.12);
+	z-index: 0;
+	display: block;
+    height: 1.7vw;
+    width: 1.7vw;
+}
+
+.iconEnabled {
+	background: #fff !important;
+	border: solid 1px #fff !important;
+	color: #709fdc !important;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
+		rgba(0, 0, 0, 0.12);
+	z-index: 0;
+	display: block;
+    height: 1.7vw;
+    width: 1.7vw;
+}
+
+.divHidden {
+	display: none;
+}

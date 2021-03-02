@@ -1,0 +1,79 @@
+/*top nav bar*/
+.tn-container{
+  background-color: #777;
+  height: 60px;
+  display: flex;
+  flex-wrap: nowrap;
+
+}
+
+.flex-item{
+  background-color: #535c68;
+  color: white;
+    text-align: center;
+    font-size: 14px;
+    padding: 12px;
+    border: 1px solid white;
+    
+    flex-direction: row-reverse;
+    margin: 8px 2px;
+    height: 42px;
+    min-width: 100px;
+  
+  
+}
+
+.item1{
+  margin: 9px 16px;
+}
+
+.item7{
+  background-color: forestgreen;
+    height: 36px;
+    text-align: center;
+    margin: 10px 3px;
+}
+
+/*input fields*/
+.text{
+  color: orange;
+  margin: 20px 9px;
+}
+
+
+.filter-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    
+    color: orange;
+}
+.labels{
+
+font-size: 15px;
+display: flex;
+margin: 0px;
+
+}
+.label{
+  min-width:200px;
+  padding: 10px;    
+}
+.label select {
+display: block;
+margin-top: 10px;
+width: 100%;
+padding: 5px;
+}
+
+/*search button*/
+button.search-btn {
+width: 100px;
+height: 35px;
+margin: 10px;
+}
+
+
+
+

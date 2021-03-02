@@ -1,0 +1,17 @@
+<div class="div-wrapper" [ngStyle]="{'width': (dataList.length  * parseNumber(colWidth) + parseNumber(headWidth) + 2) +'vw','height':gridHeight}">
+		<div id="{{name + '33'}}" style="display: inline-block;border-bottom: 1px solid black"
+			[ngStyle]="{'width': 'calc( 100% -'+ parseNumber(colWidth) + 'vw'+')' ,'float': (this.globalStyle.isLeftDirection)?'left':'right','margin-left':parseNumber(colWidth)+ .5 + 'vw'}"  class="data-scroller">
+			<table id="dataGrid" class="display nowrap dataTable" cellspacing="0" role="grid" width="100%">
+				<tr *ngFor="let column of headerData; let indx = index;trackBy:track" role="row"
+					[ngStyle]="{'height':rowHeight}">
+					<th tabindex="0" rowspan="1" colspan="1"  class=" tpaneltitle pinned-col" style="text-align: left;"
+						[ngStyle]="{'width': headWidth,'height':rowHeight}">
+						{{(labelPrefix+ column.header) | translate}}</th>					
+					<td *ngFor="let rowItem of dataList;let rowIndx = index; trackBy:track"
+							[ngStyle]="{'width': parseNumber(colWidth)+'vw','height':rowHeight}" [ngClass]="this.compareList[rowIndx][indx]">
+							{{rowItem[indx]}}
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>

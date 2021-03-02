@@ -1,0 +1,114 @@
+
+<table width="100%">
+
+	<!--tr>
+			<td>
+				<table width="100%">
+					<td colspan="4">
+											
+						<div class="buttonDiv">
+							<!-- <i class="material-icons" title="Get SSI">&#xE24D;</i> >
+							<iButton id="mm_Add" name="Get SSI" requestType='submit'
+								placeholder="Add" compType='rectangle' btnType='submit'>
+							</iButton>
+						</div>
+
+					</td>
+				</table>
+			</td>
+
+		</tr-->
+	<tr>
+		<td>
+			<form #settleGridForm="ngForm">
+				<table width="100%">
+					<tr>
+						<td width="10%"><iText #Acc_Desc id="Acc_Desc"
+								name="Acc_Desc" placeholder="Acc Desc" [(ngModel)]="v_Acc_Desc"
+								required="true"></iText></td>
+
+						<td width="10%"><iDropdown #s_FlagAccSold id="s_FlagAccSold"
+								name="s_FlagAccSold" requestType='ACCFLAG'
+								[(ngModel)]="v_s_FlagAccSold" [contextUrl]='contextUrl'
+								placeholder="Acc Flag" required="false" objReq="false">
+							</iDropdown></td>
+
+						<td width="10%"><iAmount #s_Amount id="s_Amount"
+								name="s_Amount" compType="Amount" requestType='Amount'
+								[(ngModel)]="v_s_Amount" placeholder="Amount" required="false">
+							</iAmount></td>
+
+						<td width="10%"><iTextSearch #s_AccSold id="s_AccSold"
+								name="s_AccSold"  requestType="ACCSEARCH" [pathParam]="currencyCode"
+								placeholder="Account" [(ngModel)]="v_s_AccSold" required="false"
+								[contextUrl]="accNumPath" [searchIconDisabled]="isSearchdisable"
+								(searchEvent)="getAccDetails($event)"
+								[inputParams]="inputParams"> </iTextSearch></td>
+
+						<td width="10%"><iDropdown #s_RcnSold id="s_RcnSold"
+								name="s_RcnSold" requestType='RCN' [(ngModel)]="v_s_RcnSold"
+								[contextUrl]='contextUrl' placeholder="Resp Center No"
+								required="false" objReq="false"> </iDropdown></td>
+
+						<td width="10%"><iTextSearch #s_PayTo id="s_PayTo"
+								name="s_PayTo" requestType='CUSTOMER'
+								[inputParams]="inputParams" placeholder="Pay To"
+								[(ngModel)]="v_s_PayTo" required="false"
+								[contextUrl]='contextUrl'
+								(searchEvent)="getPayToSwiftCode($event)"> </iTextSearch></td>
+
+
+						<td width="10%"><iText #s_Intermediary id="s_Intermediary"
+								name="s_Intermediary" placeholder="Intermediary"
+								[(ngModel)]="v_s_Intermediary" required="false"> </iText></td>
+
+						<td width="10%"><iText #s_RecvCorres id="s_RecvCorres"
+								name="s_RecvCorres" [(ngModel)]="v_s_RecvCorres"
+								placeholder="RecCorresp" required="false"> </iText></td>
+
+						<td width="10%"><iText #s_AccBen id="s_AccBen"
+								name="s_AccBen" placeholder="Acc Beneficiary"
+								[(ngModel)]="v_s_AccBen" required="false"> </iText></td>
+
+						<td width="10%"><iDropdown #s_PayAt id="s_PayAt"
+								name="s_PayAt" requestType='PAYAT' placeholder="Pay At"
+								[(ngModel)]="v_s_PayAt" required="false"
+								[contextUrl]='contextUrl' objReq="false"> </iDropdown></td>
+
+						<td width="5%">
+							<div style="top: 6px; right: 1vw; position: relative;">
+
+								<!--iIcon name="add_circle_outline" (click)="addNewRow(settleGridForm.form,settlementHeaderList,settlementDataGrid)"
+										placeholder="Add" [ngClass]="isAdd?'iconEnabled':'iconDisabled'"></iIcon-->
+
+								<iIcon name="create"
+									(handleClickEvent)="modifyRow(settleGridForm.form,settlementHeaderList,settlementDataGrid);"
+									placeholder="Modify" [disabled]="!isModify"
+									[ngClass]="isModify?'iconEnabled':'iconDisabled'" size="1.5"></iIcon>
+
+							</div>
+						</td>
+
+					</tr>
+
+					<div style="display: none">
+						<iDropdown #ccyCode id="ccyCode" labelReq="false" name="ccyCode"
+							requestType='CURRENCY' [contextUrl]='contextUrl'
+							placeholder="Currency" [(ngModel)]="v_ccyCode" required="false"
+							objReq="false"></iDropdown>
+					</div>
+				</table>
+			</form>
+		</td>
+	</tr>
+	<tr>
+		<td><iGrid #settlementDataGrid name="settlegrid"
+				advSearchLabelType="Settlement" [inputParams]="inputParams"
+				[contextUrl]="contextUrl" titleReq="false" rowType="manual"
+				[headerData]="settlementHeaderList"
+				(rowDeleteEvent)="deleteRowFromPool($event);" headHeight="1vw"
+				gridWidth="84vw" gridHeight="10vw" rowHeight="1vw"
+				(rowSelectEvent)="populateDeal($event);"></iGrid></td>
+	</tr>
+
+</table>

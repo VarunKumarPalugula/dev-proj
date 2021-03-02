@@ -1,0 +1,134 @@
+table {
+	background-color: transparent
+}
+
+caption {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	color: #777;
+	text-align: left
+}
+
+  .grid{
+	/* overflow-y: auto;
+	height:10vw; */
+	overflow-x: auto;
+	width:100%;
+	border: solid 1px rgb(19, 22, 35);
+}  
+
+th {
+	text-align: left
+}
+
+.valid {
+	background-color : green;
+}
+
+.invalid {
+	background-color :red;
+}
+
+.table {
+	/*  width: auto; 
+	max-width: 100%; */
+	/* margin-bottom: 20px; */
+	color: black;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th,
+	.table>thead>tr>td, .table>thead>tr>th {
+	padding: 8px;
+	line-height: 1.42857143;
+	vertical-align: top;
+	border-top: 1px solid #ddd;
+	    min-width: 7vw;
+}
+
+/* .table>thead>tr>th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #ddd
+} */
+
+ .table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th,
+	.table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th,
+	.table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th
+	{
+	border-top: 0
+} 
+
+/* .table>tbody+tbody {
+	border-top: 2px solid #ddd;
+	height: 200px;
+	overflow: auto;
+} */
+
+.table .table {
+	background-color: #fff
+}
+
+/* .table-bordered {
+	border: 1px solid #ddd
+}
+
+ .table-bordered>div>tbody>tr>td, .table-bordered>div>tbody>tr>th,
+	.table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th,
+	.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+	border: 1px solid #ddd
+} 
+
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+	border-bottom-width: 2px
+} */
+
+.table-striped>thead>tr:nth-of-type(odd) {
+	background-color: rgba(39, 146, 158, 0.96);
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    color: white;
+	/* font-variant: small-caps; */
+}
+.table-striped>thead>tr:nth-of-type(even) {
+	background-color: #eeeeee;
+	font-family: Roboto, 'Helvetica Neue', sans-serif;
+	font-size: 14px;
+	/* font-variant: small-caps; */
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+	background-color: #cccccc;
+	font-family: Roboto, 'Helvetica Neue', sans-serif;
+	font-size: 14px;
+	color: black;
+}
+ tbody{
+	overflow-y: auto;
+	height:4vw;
+	
+} 
+.table-striped>tbody>tr:nth-of-type(even) {
+	background-color: #eeeeee;
+	font-family: Roboto, 'Helvetica Neue', sans-serif;
+	font-size: 14px;
+}
+/* .table-striped>tbody>tr:nth-of-type(odd) {
+	background-color: #2fbbff
+} */
+
+.table-hover>tbody>tr:hover {
+	background-color: #00dfdf;
+	color: black;
+}
+
+table col[class*=col-] {
+	position: static;
+	display: table-column;
+	float: none
+}
+
+table td[class*=col-], table th[class*=col-] {
+	position: static;
+	display: table-cell;
+	float: none
+}
+ /* Table End*/

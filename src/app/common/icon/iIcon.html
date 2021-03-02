@@ -1,0 +1,15 @@
+<div style="display: inline-block;" [ngStyle]="{'line-height': size+'', 'height':  size+'vw'}" class="{{classType}}" (click)="handleEvent($event)">
+	<md-icon svgIcon="{{name}}"	[title]="placeholder" [class.disableIcon]="disabled"
+		[ngStyle]="{
+				'width': size+'vw', 'height':  size+'vw','line-height': size+'vw', 'padding': '0px',
+				'float': this.globalStyle.isLeftDirection?'left':'right',
+				'pointer-events':disabled?'none':'all','color':color}"
+		></md-icon>				
+	<span *ngIf="ilabel.length > 0" 
+		[ngStyle]="{'vertical-align': 'middle',
+					'line-height': size + 'vw', 
+					'display': 'inline-block', 
+					'float': this.globalStyle.isLeftDirection?'left':'right'}" >
+		&nbsp;{{ilabel | translate}}
+	</span>
+</div>

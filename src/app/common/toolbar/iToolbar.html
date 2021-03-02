@@ -1,0 +1,17 @@
+<iPopup title="{{pathInfo}}" popUpType="confirm" [(modalFlag)] = "flag && this.formvalid"
+	actionType ="{{toolbarPath  | translate}}" (popupclick) ="onConfirmation($event)">
+</iPopup>
+
+<div *ngFor="let action of actionList">
+	<!-- *ngFor="let action of actionList"  -->
+	<div *ngFor="let tooList of toolbarList[status - 1].list">
+		<template [ngIf]="tooList.name==action.title">
+			<div class="toolbarDiv" [style.text-align]="this.globalStyle.isLeftDirection?'right':'left'"
+		[style.float]="this.globalStyle.isLeftDirection?'left':'right'">
+			<iButton name="{{action.title}}" compType="toolBarImgRectangle" btnType="submit" [imgPath] ="action.imagePath"
+				iconName="{{action.name}}" [disabled] ="tooList.disabled" 
+				(ibtnEvent)="onClick(action.path,tooList.disabled)" value="{{action.title}}"></iButton>		
+			</div>
+		</template>
+	</div>
+</div>
