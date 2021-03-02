@@ -1,5 +1,4 @@
 import {Component,Renderer2, ElementRef} from '@angular/core';
-import { FieldComponent } from '../../../base/iField';
 
 
 @Component({
@@ -7,7 +6,7 @@ import { FieldComponent } from '../../../base/iField';
     templateUrl: 'blotter.main.html'
 })
 
-export class BlotterMainComponent extends FieldComponent { 
+export class BlotterMainComponent  { 
     
     constructor(_renderer: Renderer2, _elementRef: ElementRef) {
         super(_renderer, _elementRef);  

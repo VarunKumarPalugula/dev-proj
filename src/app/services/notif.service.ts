@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
 import { GlobalService } from './global.service';
+import * as moment from 'moment';
 
 
 @Injectable()
